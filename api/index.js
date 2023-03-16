@@ -1,7 +1,7 @@
 import express from "express"
 import authRoutes from "./routes/auth.js"
 import userRoutes from "./routes/users.js"
-import courseRoutes from "./routes/courses"
+import courseRoutes from "./routes/courses.js"
 
 const app = express()
 
