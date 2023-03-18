@@ -10,7 +10,9 @@ const Register = () => {
     email:"",
     role:"",
   });
-  //const [err, setError] = useState(null);
+  const [err, setError] = useState(null);
+
+  const navigate = useNavigate();
 
   //state change handle function
   const handleChange = (e) => {
@@ -20,12 +22,11 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/auth/register", inputs);
-      console.log(res)
-      //navigate("/login");
+      await axios.post("/auth/register", inputs);
+      //console.log(res)
+      navigate("/Login");
     } catch (err) {
-      //setError(err.response.data);
-      console.log(err)
+      setError(err.response.data);
     }
   };
 
@@ -66,7 +67,7 @@ const Register = () => {
         />
         
         <button onClick={handleSubmit}>Register</button>
-
+        {err && <p>{err}</p>}
         <span>
           <Link to="/Login">Login</Link>
         </span>
