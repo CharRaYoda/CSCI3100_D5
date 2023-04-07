@@ -1,6 +1,7 @@
 import { db } from "../db.js";
 
 export const register = (req, res) => {
+  if (req.body.role === "select") return res.status(409).json("Please select your role.");
   //Check existing user
   const q = "SELECT * FROM users WHERE uid = ?";
 
@@ -19,6 +20,7 @@ export const register = (req, res) => {
 };
 
 export const login = (req, res) => {
+  if (req.body.role === "select") return res.status(409).json("Please select your role.");
 
   const q = "SELECT * FROM users WHERE uid = ?";
 
@@ -36,6 +38,13 @@ export const login = (req, res) => {
       return res.status(400).json("The role does not match.");
     }
 
-    return res.status(200).json("Login successfully.");
+    return res.status(200).json(data[0]);
   });
+};
+
+export const logout = (req, res) => {
+  res.clearCookie("access_token",{
+    sameSite:"none",
+    secure:true
+  }).status(200).json("User has been logged out.")
 };

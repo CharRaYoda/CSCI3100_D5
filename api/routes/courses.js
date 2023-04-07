@@ -1,5 +1,12 @@
-import express from "express"
+import express from "express";
+import {
+  getCourseByID,
+  selectCourse
+} from "../controllers/courses.js";
 
-const router = express.Router()
+const router = express.Router();
 
-export default router
+router.get("/:courseCode", getCourseByID);
+router.post("/selectCourse", selectCourse);
+
+export default router;

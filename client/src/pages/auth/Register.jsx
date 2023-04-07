@@ -3,12 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Register = () => {
+  const roles = ["select", "student", "teacher", "admin"];
   //state for input fields
   const [inputs, setInputs] = useState({
     uid:"",
     password:"",
     email:"",
-    role:"",
+    role:roles[0],
   });
   const [err, setError] = useState(null);
 
@@ -32,6 +33,7 @@ const Register = () => {
 
   return (
     <div className="auth">
+      <h1>Course Selection System</h1>
       <h1>Register</h1>
       <form>
         <input
@@ -58,18 +60,21 @@ const Register = () => {
           onChange={handleChange}
         />
 
-        <input
-          required
-          type="text"
-          placeholder="role"
+        <select
+          value={inputs.role}
           name="role"
-          onChange={handleChange}
-        />
+          onChange={handleChange}>
+            {roles.map((value) => (
+              <option value={value} key={value}>
+                {value}
+              </option>
+            ))}
+        </select>
         
         <button onClick={handleSubmit}>Register</button>
         {err && <p>{err}</p>}
         <span>
-          <Link to="/Login">Login</Link>
+          <Link to="/login">Login</Link>{/*path in App.js*/} 
         </span>
       </form>
     </div>

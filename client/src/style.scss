@@ -1,4 +1,4 @@
-$lightGreen: #b9e7e7;
+$lightPurple: #f2f2fc;
 
 .app {
   .container {
@@ -11,11 +11,11 @@ $lightGreen: #b9e7e7;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      background-color: $lightGreen;
+      background-color: $lightPurple;
 
       h1 {
         font-size: 20px;
-        color: teal;
+        color: #4147d5;
         margin-bottom: 20px;
       }
 
@@ -51,6 +51,35 @@ $lightGreen: #b9e7e7;
           font-size: 12px;
           text-align: center;
         }
+      }
+    }
+
+    //Student home
+    .studentHome {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      background-color: $lightPurple;
+
+      h1 {
+        font-size: 50px;
+        color: #4147d5;
+        margin-bottom: 20px;
+        margin-left: 20px;
+      }
+      
+    }
+
+    //Course Browsing
+    .CourseBrowsing {
+      background-color: $lightPurple;
+      height: 100vh;
+
+      h1:not(.menu) {
+        font-size: 70px;
+        color: #4147d5;
+        margin-bottom: 20px;
+        margin-left: 20px;
       }
     }
   }

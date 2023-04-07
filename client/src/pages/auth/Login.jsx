@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 import { useContext } from "react";
-//import { AuthContext } from "../context/authContext";
+import { AuthContext } from "../../context/authContext";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
+  const roles = ["select", "student", "teacher", "admin"];
   const [inputs, setInputs] = useState({
     uid:"",
     password:"",
-    role:"",
+    role:roles[0],
   });
   const [err, setError] = useState(null);
 
   const navigate = useNavigate();
 
-  //const { login } = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
 
   //state change handle function
   const handleChange = (e) => {
@@ -24,7 +25,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/auth/login", inputs);
+      await login(inputs);
 
       if (inputs.role === "student"){
         navigate("/student/home");
@@ -42,6 +43,7 @@ const Login = () => {
 
   return (
     <div className="auth">
+      <h1>Course Selection System</h1>
       <h1>Login</h1>
       <form>
         <input
@@ -60,18 +62,29 @@ const Login = () => {
           onChange={handleChange}
         />
 
-        <input
-          required
-          type="text"
-          placeholder="role"
+        <select
+          value={inputs.role}
           name="role"
-          onChange={handleChange}
-        />
+          onChange={handleChange}>
+            {roles.map((value) => (
+              <option value={value} key={value}>
+                {value}
+              </option>
+            ))}
+        </select>
+
+        <span>
+          <Link>Contact Admin</Link>
+        </span>
+
+        <span>
+          <Link>Forget Password</Link>
+        </span>
         
         <button onClick={handleSubmit}>Login</button>
         {err && <p>{err}</p>}
         <span>
-          <Link to="/Register">Register</Link>
+          <Link to="/register">Register</Link>{/*path in App.js*/} 
         </span>
       </form>
     </div>
