@@ -7,6 +7,7 @@ import {
 import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
 import ContactAdmin from "./pages/ContactAdmin/ContactAdmin";
+import BugReport from "./pages/common/BugReport";
 import StudentHome from "./pages/student/Home";
 import CourseBrowsing from "./pages/student/CourseBrowsing";
 import TeacherHome from "./pages/teacher/Home";
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
   {
     path: "/ContactAdmin",
     element: <ContactAdmin />,
+  },
+  {
+    path: "/BugReport",
+    element: <BugReport />,
   },
 ]);
 
