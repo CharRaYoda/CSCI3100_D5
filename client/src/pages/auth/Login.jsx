@@ -74,7 +74,7 @@ const Login = () => {
         </select>
 
         <span>
-          <Link>Contact Admin</Link>
+          <Link to="/ContactAdmin">Contact Admin</Link>
         </span>
 
         <span>
