@@ -6,6 +6,8 @@ import {
 } from "react-router-dom";
 import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
+import ContactAdmin from "./pages/ContactAdmin/ContactAdmin";
+import BugReport from "./pages/common/BugReport";
 import StudentHome from "./pages/student/Home";
 import CourseBrowsing from "./pages/student/CourseBrowsing";
 import Profile from "./pages/student/Profile";
@@ -41,6 +43,14 @@ const router = createBrowserRouter([
   {
     path: "/student/profile",
     element: <Profile />,
+  },
+  {
+    path: "/ContactAdmin",
+    element: <ContactAdmin />,
+  },
+  {
+    path: "/BugReport",
+    element: <BugReport />,
   },
 ]);
 
