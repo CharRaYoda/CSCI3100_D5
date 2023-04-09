@@ -4,4 +4,4 @@ CSCI3100 Group Project (Course Selection System)
 
 Ben: login, register, course browsing, profile
 
-RayLi: contact admin(in pull request)
+RayLi: contact admin(done)
