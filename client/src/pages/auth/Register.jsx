@@ -61,12 +61,11 @@ const Register = () => {
         />
 
         <select
-          value={inputs.role}
           name="role"
           onChange={handleChange}>
-            {roles.map((value) => (
-              <option value={value} key={value}>
-                {value}
+            {roles.map((role) => (
+              <option value={role} key={role}>
+                {role}
               </option>
             ))}
         </select>

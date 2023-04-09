@@ -81,6 +81,35 @@ $lightPurple: #f2f2fc;
         margin-bottom: 20px;
         margin-left: 20px;
       }
+
+      .err{
+        color: red;
+      }
+
+      .response{
+        color: red;
+      }
+    }
+
+    //Profile
+    .Profile {
+      background-color: $lightPurple;
+      height: 100vh;
+
+      h1:not(.menu) {
+        font-size: 70px;
+        color: #4147d5;
+        margin-bottom: 20px;
+        margin-left: 20px;
+      }
+
+      .err{
+        color: red;
+      }
+
+      .response{
+        color: red;
+      }
     }
   }
 }

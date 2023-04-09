@@ -18,23 +18,25 @@ const StudentHome = () => {
         
         switch (index) {
           case 0:
-            // navigate to page 1
+            // navigate to profile
+            navigate("/student/Profile");
             break;
           case 1:
-            // navigate to page 2
+            // navigate to course browsing
+            navigate("/student/CourseBrowsing");
             break;
           case 2:
-            // navigate to page 3
+            // navigate to change password
             break;
           case 3:
-            // navigate to page 4
+            // navigate to campus map
             break;
           case 4:
-            // navigate to page 5
+            // navigate to bug report
             break;
           case 5:
-            // navigate to page 6
-            
+            // navigate to login
+            navigate("/login");
             break;
           default:
             break;

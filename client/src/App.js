@@ -8,6 +8,7 @@ import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
 import StudentHome from "./pages/student/Home";
 import CourseBrowsing from "./pages/student/CourseBrowsing";
+import Profile from "./pages/student/Profile";
 import TeacherHome from "./pages/teacher/Home";
 import AdminHome from "./pages/admin/Home";
 import "./style.scss"
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: "/student/CourseBrowsing",
     element: <CourseBrowsing />,
+  },
+  {
+    path: "/student/profile",
+    element: <Profile />,
   },
 ]);
 
