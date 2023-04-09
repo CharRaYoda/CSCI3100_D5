@@ -29,10 +29,12 @@ const StudentHome = () => {
             // navigate to change password
             break;
           case 3:
-            // navigate to campus map
+            // open new tab to campus map
+            window.open('https://www.cuhk.edu.hk/chinese/campus/cuhk-campus-map.html', '_blank');
             break;
           case 4:
             // navigate to bug report
+            navigate("/BugReport");
             break;
           case 5:
             // navigate to login

@@ -18,23 +18,28 @@ const AdminHome = () => {
         
         switch (index) {
           case 0:
-            // navigate to page 1
+            // navigate to EnrollmentSetting
+            
             break;
           case 1:
-            // navigate to page 2
+            // navigate to View/Edit Users
+            
             break;
           case 2:
-            // navigate to page 3
+            // navigate to ChangePassword
+            
             break;
           case 3:
-            // navigate to page 4
+            // navigate to BugReport
+            navigate("/BugReport");
             break;
           case 4:
-            // navigate to page 5
+            // navigate to View/Edit Courses
+            
             break;
           case 5:
-            // navigate to page 6
-            
+            // Log Out
+            navigate("/login");
             break;
           default:
             break;

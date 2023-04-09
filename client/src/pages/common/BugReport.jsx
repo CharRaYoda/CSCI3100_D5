@@ -1,13 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './BugReport.css';
+import { Link, useNavigate} from "react-router-dom";
+import { AuthContext } from '../../context/authContext';
 
-function BugReport() {
+function BugReport({ user }) {
+  const { currentUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const emailList = [
     'DeveloperTeam@cse.cuhk.edu.hk',
   ];
 
   const handleEmailClick = (email) => {
     window.location.href = `mailto:${email}`;
+  };
+
+  const handleGoBack = () => {
+    if (currentUser.role === 'student') {
+      navigate('/student/home');
+    } else if (currentUser.role === 'teacher') {
+      navigate('/teacher/home');
+    } else if (currentUser.role === 'admin') {
+      navigate('/admin/home');
+    } else {
+      navigate('/login');
+    }
   };
 
   return (
@@ -22,6 +39,9 @@ function BugReport() {
           </li>
         ))}
       </ul>
+      <span>
+      <Link onClick={handleGoBack}>Go back</Link>{/*path in App.js*/} 
+      </span>
     </div>
   );
 }
