@@ -82,11 +82,11 @@ $lightPurple: #f2f2fc;
         margin-left: 20px;
       }
 
-      .err{
+      .err {
         color: red;
       }
 
-      .response{
+      .response {
         color: red;
       }
     }
@@ -103,12 +103,40 @@ $lightPurple: #f2f2fc;
         margin-left: 20px;
       }
 
-      .err{
+      .err {
         color: red;
       }
 
-      .response{
+      .response {
         color: red;
+      }
+    }
+
+    //Grade upload
+    .GradeUpload {
+      background-color: $lightPurple;
+      height: 100vh;
+
+      h1:not(.menu) {
+        font-size: 70px;
+        color: #4147d5;
+        margin-bottom: 20px;
+        margin-left: 20px;
+      }
+
+      .err {
+        color: red;
+      }
+
+      .response {
+        color: red;
+      }
+    }
+
+    //Bug report
+    .bug-report-container {
+      button {
+        margin-top: 20px;
       }
     }
   }

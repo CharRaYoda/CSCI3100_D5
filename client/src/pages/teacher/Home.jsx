@@ -7,12 +7,12 @@ import CourseTeaching from './image/CourseTeaching.png';
 import Logout from './image/Logout.png';
 import SpecialAddDrop from './image/SpecialAddDrop.png';
 import CourseUpdate from './image/CourseUpdate.png';
-import GradeUpdate from './image/GradeUpdate.png';
+import GradeUpload from './image/GradeUpload.png';
 import { Link, useNavigate } from "react-router-dom";
 
 const TeacherHome = () => {
     const images = [
-        CourseUpdate, GradeUpdate, ChangePassword, SpecialAddDrop, BugReport, ClassroomBooking, CampusMap, CourseTeaching
+        CourseUpdate, GradeUpload, ChangePassword, SpecialAddDrop, BugReport, ClassroomBooking, CampusMap, CourseTeaching
         , Logout
     ];
 
@@ -27,7 +27,7 @@ const TeacherHome = () => {
             break;
           case 1:
             // navigate to GradeUpdate
-            
+            navigate("/teacher/GradeUpload");
             break;
           case 2:
             // navigate to ChangePassword

@@ -12,7 +12,9 @@ import StudentHome from "./pages/student/Home";
 import CourseBrowsing from "./pages/student/CourseBrowsing";
 import Profile from "./pages/student/Profile";
 import TeacherHome from "./pages/teacher/Home";
+import GradeUpload from "./pages/teacher/GradeUpload";
 import AdminHome from "./pages/admin/Home";
+import Timetable from "./pages/tt";
 import "./style.scss"
 
 const router = createBrowserRouter([
@@ -31,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: "/teacher/home",
     element: <TeacherHome />,
+  },
+  {
+    path: "/teacher/GradeUpload",
+    element: <GradeUpload />,
   },
   {
     path: "/admin/home",

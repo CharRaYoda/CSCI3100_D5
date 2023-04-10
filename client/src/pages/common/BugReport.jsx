@@ -40,7 +40,7 @@ function BugReport({ user }) {
         ))}
       </ul>
       <span>
-      <Link onClick={handleGoBack}>Go back</Link>{/*path in App.js*/} 
+      <button onClick={handleGoBack}>Go back</button>{/*path in App.js*/} 
       </span>
     </div>
   );
