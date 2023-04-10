@@ -77,7 +77,7 @@ const Login = () => {
         </span>
 
         <span>
-          <Link>Forget Password</Link>
+          <Link to="/ForgetPassword">Forget Password</Link>
         </span>
         
         <button onClick={handleSubmit}>Login</button>

@@ -14,6 +14,7 @@ import CourseBrowsing from "./pages/student/CourseBrowsing";
 import Profile from "./pages/student/Profile";
 import TeacherHome from "./pages/teacher/Home";
 import AdminHome from "./pages/admin/Home";
+import ForgetPassword from "./pages/common/ForgetPassword";
 import "./style.scss"
 
 const router = createBrowserRouter([
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
   {
     path: "/BugReport",
     element: <BugReport />,
+  },
+  {
+    path: "/ForgetPassword",
+    element: <ForgetPassword />,
   },
 ]);
 
