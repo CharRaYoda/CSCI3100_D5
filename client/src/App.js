@@ -15,6 +15,7 @@ import Profile from "./pages/student/Profile";
 import TeacherHome from "./pages/teacher/Home";
 import AdminHome from "./pages/admin/Home";
 import "./style.scss"
+import ChangePassword from "./pages/common/ChangePassword";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
   {
     path: "/BugReport",
     element: <BugReport />,
+  },
+  {
+    path: "/ChangePassword",
+    element: <ChangePassword />,
   },
 ]);
 
