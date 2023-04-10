@@ -13,7 +13,7 @@ const Profile = () => {
     //fetch selected courses when rendering in the beginning
     useEffect(() => {
         async function fetchData() {
-            const response = await axios.get(`/enrollment/${currentUser.uid}`);
+            const response = await axios.get(`/enrollments/${currentUser.uid}`);
             setResults(response.data);
         }
         fetchData();
@@ -21,8 +21,8 @@ const Profile = () => {
 
     const handleDrop = async (cid) => {
         try {
-          await axios.post("/enrollment/drop", {uid: currentUser.uid, cid: cid});
-          const response = await axios.get(`/enrollment/${currentUser.uid}`);
+          await axios.post("/enrollments/drop", {uid: currentUser.uid, cid: cid});
+          const response = await axios.get(`/enrollments/${currentUser.uid}`);
           setResults(response.data);
         } catch (err) {
           console.error(err);
