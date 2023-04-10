@@ -4,4 +4,7 @@ CSCI3100 Group Project (Course Selection System)
 
 Ben: login, register, course browsing, profile
 
-RayLi: contact admin(done), BugReport(done but need testing on navigation to different role's home), campus map(done)
+RayLi: contact admin(done), BugReport(done but need push), campus map(done), default system page(done), changePassword(in pull request, need testing), forgetPassword(in pull request, need testing)
+
+Ray Wong: Admin Home(done), Enrollment Status(on hold), ViewEditCourse (Delete not finish), ViewEditUser (Delete not finish)
+          Searching part using Search Filter

@@ -4,6 +4,7 @@ import {
   Route,
   Outlet,
 } from "react-router-dom";
+import DefaultPage from "./pages/common/DefaultPage";
 import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
 import ContactAdmin from "./pages/ContactAdmin/ContactAdmin";
@@ -18,6 +19,10 @@ import Timetable from "./pages/tt";
 import "./style.scss"
 
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <DefaultPage />,
+  },
   {
     path: "/register",
     element: <Register />,
