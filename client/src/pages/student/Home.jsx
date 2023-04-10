@@ -27,6 +27,7 @@ const StudentHome = () => {
             break;
           case 2:
             // navigate to change password
+            navigate("/ChangePassword");
             break;
           case 3:
             // open new tab to campus map

@@ -27,7 +27,7 @@ const AdminHome = () => {
             break;
           case 2:
             // navigate to ChangePassword
-            
+            navigate("/ChangePassword");
             break;
           case 3:
             // navigate to BugReport
