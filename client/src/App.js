@@ -15,7 +15,6 @@ import Profile from "./pages/student/Profile";
 import TeacherHome from "./pages/teacher/Home";
 import GradeUpload from "./pages/teacher/GradeUpload";
 import AdminHome from "./pages/admin/Home";
-import Timetable from "./pages/tt";
 import "./style.scss"
 
 const router = createBrowserRouter([
