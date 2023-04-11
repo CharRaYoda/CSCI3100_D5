@@ -1,15 +1,15 @@
 import React from 'react';
 import EnrollmentSetting from './image/EnrollmentSetting.png';
-import ViewEditCourses from './image/ViewEditCourses.png';
 import ChangePassword from './image/ChangePassword.png';
-import ViewEditUsers from './image/ViewEditUsers.png';
+import ViewEditCourse from './image/ViewEditCourse.png';
+import ViewEditUser from './image/ViewEditUser.png';
 import BugReport from './image/BugReport.png';
 import LogOut from './image/LogOut.png';
 import { Link, useNavigate } from "react-router-dom";
 
 const AdminHome = () => {
     const images = [
-        EnrollmentSetting, ViewEditUsers, ChangePassword, BugReport,ViewEditCourses, LogOut
+        EnrollmentSetting, ViewEditUser, ViewEditCourse, ChangePassword, BugReport, LogOut
     ];
 
     const navigate = useNavigate();
@@ -17,37 +17,39 @@ const AdminHome = () => {
     const handleClick = (index) => {
         
         switch (index) {
-          case 0:
-            // navigate to EnrollmentSetting
-            
-            break;
-          case 1:
-            // navigate to View/Edit Users
-            
-            break;
-          case 2:
-            // navigate to ChangePassword
-            
-            break;
-          case 3:
-            // navigate to BugReport
-            navigate("/BugReport");
-            break;
-          case 4:
-            // navigate to View/Edit Courses
-            
-            break;
-          case 5:
-            // Log Out
-            navigate("/login");
-            break;
-          default:
-            break;
+            case 0:
+                // navigate to Enrollment Setting page
+                navigate('/admin/EnrollmentSetting');
+                break;
+            case 1:
+                // navigate to View/Edit User page
+                navigate('/admin/ViewEditUsers');
+                break;
+            case 2:
+                // navigate to View/Edit Course page
+                navigate('/admin/ViewEditCourses');
+                break;
+
+            case 3:
+                // navigate to Change Password page
+                navigate('/admin/change-password');
+                break;
+            case 4:
+                // navigate to Bug Report page
+                navigate('/BugReport');
+                break;
+            case 5:
+                // navigate to Log Out page
+                localStorage.clear();
+                navigate('/login');
+                break;
+            default:
+                break;
         }
     };
 
     return (
-        <div className="studentHome">
+        <div className="adminHome">
             <h1>Admin Home</h1>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridGap: '20px' }}>

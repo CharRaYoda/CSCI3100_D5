@@ -1,0 +1,93 @@
+import { db } from "../db.js";
+
+export const addUser = (req, res) => {
+    const q = "SELECT * FROM users WHERE uid = ?";
+    db.query(q, [req.body.uid], (err, data) => {
+    if (err) return res.status(500).json(err);
+    if (data.length>0) return res.status(409).json("User already exist");
+
+    const q = "INSERT INTO users(`uid`,`password`,`email`,`role`,`gpa`) VALUES (?)";
+    const values = [req.body.uid, req.body.password, req.body.email, req.body.role, req.body.gpa];
+    db.query(q, [values], (err, data) => {
+      if (err) return res.status(500).json(err);
+      return res.status(200).json("User added successfully.");
+    });
+  });
+};
+
+export const getAllUsers = (req, res) => {
+  const q =
+    "SELECT * FROM users";
+  db.query(q, (err, data) => {
+    if (err) return res.status(500).json(err);
+
+    return res.status(200).json(data);//array of objects
+  });
+};
+
+
+export const getUsersByID = (req, res) => {
+    const q =
+      "SELECT uid, password, email, role, gpa FROM users WHERE uid = ?";
+  
+    db.query(q, [req.params.courseCode], (err, data) => {
+      if (err) return res.status(500).json(err);
+
+      return res.status(200).json(data);//array of objects
+    });
+  };
+
+  export const getUsersByEmail = (req, res) => {
+    const q =
+      "SELECT uid, password, email, role, gpa FROM users WHERE email = ?";
+  
+    db.query(q, [req.params.courseCode], (err, data) => {
+      if (err) return res.status(500).json(err);
+
+      return res.status(200).json(data);//array of objects
+    });
+  };
+
+export const getUsersBygpa = (req, res) => {
+    const q = "SELECT * FROM users WHERE gpa = ?";
+
+    db.query(q, [req.body.uid, req.body.cid], (err, data) => {
+    if (err) return res.status(500).json(err);
+    if (data.length) return res.status(409).json("Already enrolled in this course.");
+
+    const q = "INSERT INTO enrollment(`uid`,`cid`) VALUES (?)";
+    const values = [req.body.uid, req.body.cid];
+
+    db.query(q, [values], (err, data) => {
+      if (err) return res.status(500).json(err);
+      return res.status(200).json("Enrolled successfully.");
+    });
+  });
+};
+
+export const dropUser = (req, res) => {
+  const q = "DELETE FROM users WHERE uid = ?";
+
+  db.query(q, [req.body.uid], (err, data) => {
+    if (err) return res.status(500).json(err);
+    return res.status(200).json("Drop successfully.");
+  });
+
+};
+
+export const delUser = (req, res) => {
+  const q = "SELECT * FROM users WHERE uid = ?";
+
+  db.query(q, [req.body.uid], (err, data) => {
+  if (err) return res.status(500).json(err);
+  if (data.length === 0) return res.status(409).json("User NOT exist");
+
+  const q = "DELETE FROM users where uid = ?";
+  const values = [req.body.uid];
+  
+  db.query(q, [values], (err, data) => {
+    if (err) return res.status(500).json(err);
+    return res.status(200).json("User deleted successfully.");
+  });
+});
+};

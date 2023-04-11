@@ -15,6 +15,13 @@ import Profile from "./pages/student/Profile";
 import TeacherHome from "./pages/teacher/Home";
 import GradeUpload from "./pages/teacher/GradeUpload";
 import AdminHome from "./pages/admin/Home";
+import AdminEnrollmentSetting from "./pages/admin/EnrollmentSetting";
+import AdminViewEditCourses from "./pages/admin/ViewEditCourses";
+import AdminAddCourses from "./pages/admin/AddCourse";
+import AdminViewEditUsers from "./pages/admin/ViewEditUsers";
+import AdminDeleteCourse from "./pages/admin/DeleteCourse";
+import AdminDeleteUser from "./pages/admin/DeleteUser";
+import AdminAddUser from "./pages/admin/AddUser";
 import "./style.scss"
 
 const router = createBrowserRouter([
@@ -45,6 +52,34 @@ const router = createBrowserRouter([
   {
     path: "/admin/home",
     element: <AdminHome />,
+  },
+  {
+    path: "/admin/EnrollmentSetting",
+    element: <AdminEnrollmentSetting />,
+  },
+  {
+    path: "/admin/ViewEditCourses",
+    element: <AdminViewEditCourses />,
+  },
+  {
+    path: "/admin/ViewEditCourses/AddCourses",
+    element: <AdminAddCourses />,
+  },
+  {
+    path: "/admin/ViewEditCourses/DeleteCourses",
+    element: <AdminDeleteCourse />,
+  },
+  {
+    path: "/admin/ViewEditUsers",
+    element: <AdminViewEditUsers />,
+  },
+  {
+    path: "/admin/ViewEditUsers/AddUsers",
+    element: <AdminAddUser />,
+  },
+  {
+    path: "/admin/ViewEditUsers/DeleteUsers",
+    element: <AdminDeleteUser />,
   },
   {
     path: "/student/CourseBrowsing",
