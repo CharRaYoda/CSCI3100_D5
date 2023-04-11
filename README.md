@@ -6,5 +6,4 @@ Ben: login, register, course browsing, profile, grade upload
 
 RayLi: contact admin(done), BugReport(done), campus map(done), default system page(done), changePassword(in branch), forgetPassword(in branch)
 
-Ray Wong: Admin Home(done), Enrollment Status(on hold), ViewEditCourse (Delete not finish), ViewEditUser (Delete not finish)
-          Searching part using Search Filter
+Ray Wong: Admin (done), enrollment status (on hold)
