@@ -8,4 +8,4 @@ RayLi: contact admin(done), BugReport(done), campus map(done), default system pa
 
 Ray Wong: Admin (done), enrollment status (on hold)
 
-kmlay : admin home, student home, teacher home
+kmlay : admin home, student home, teacher home, front end of teacher Special AddDrop, Course Update and Classroom Booking 
