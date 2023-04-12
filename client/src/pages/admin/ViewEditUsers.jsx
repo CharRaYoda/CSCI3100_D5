@@ -25,7 +25,7 @@ const ViewEditUsers = () => {
 
     useEffect(() => {
         const filterData = async() => {
-            setVisbleData(data.filter((item)=>JSON.stringify(item.uid).includes(query)))
+            setVisbleData(data.filter((item)=>JSON.stringify(item.uid).includes(query)||item.name.includes(query)))
         }; if (query.length > 0){
             filterData();
         }else {

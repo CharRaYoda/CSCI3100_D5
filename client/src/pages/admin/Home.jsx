@@ -49,7 +49,7 @@ const AdminHome = () => {
     };
 
     return (
-        <div className="adminHome">
+        <div className="studentHome">
             <h1>Admin Home</h1>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridGap: '20px' }}>

@@ -23,7 +23,7 @@ const Table = ({data}) => {
                     <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{item.cid}</td>
                     <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{item.name}</td>
                     <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{item.Term}</td>
-                    <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{item.Date}</td>
+                    <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{item.date}</td>
                     <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{item.startTime}</td>
                     <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{item.endTime}</td>
                     <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{item.place}</td>

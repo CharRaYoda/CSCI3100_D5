@@ -4,6 +4,7 @@ const UserTable = ({data}) => {
                 <thead>
                 <tr>
                     <th style={{padding: '8px'}}>uid</th>
+                    <th style={{padding: '8px'}}>name</th>
                     <th style={{padding: '8px'}}>email</th>
                     <th style={{padding: '8px'}}>role</th>
                     <th style={{padding: '8px'}}>gpa</th>
@@ -13,6 +14,7 @@ const UserTable = ({data}) => {
                 {data.map((item) => (
                     <tr key={item.cid}>
                     <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{item.uid}</td>
+                    <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{item.name}</td>
                     <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{item.email}</td>
                     <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{item.role}</td>
                     <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{item.gpa}</td>
