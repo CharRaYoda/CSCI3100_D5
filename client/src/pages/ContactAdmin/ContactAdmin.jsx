@@ -1,5 +1,4 @@
 import React from 'react';
-import './ContactAdmin.css';
 import { Link, useNavigate } from "react-router-dom";
 
 function ContactAdmin() {

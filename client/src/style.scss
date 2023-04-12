@@ -87,6 +87,11 @@ $lightPurple: #f2f2fc;
       .response {
         color: red;
       }
+
+      .input-container {
+        display: flex;
+        align-items: center;
+      }
     }
 
     .Profile {
@@ -249,10 +254,91 @@ $lightPurple: #f2f2fc;
       }
     }
 
+    .course-selection-system-container {
+      background-image: url('./pages/common/image/DefaultBackground.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+
+      .course-selection-system-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 10px;
+      }
+      
+      .course-selection-system-link {
+        text-decoration: none;
+        color: black;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 5px;
+        background-color: #f1f1f1;
+        transition: background-color 0.2s ease-in-out;
+      }
+      
+      .course-selection-system-link:hover {
+        background-color: #ddd;
+      }
+    }
+
     .bug-report-container {
+      background-image: linear-gradient(to bottom, #c3e4ff, #ffffff);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .ChangePassword {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+
+      .header {
+        margin-bottom: 20px;
+      }
+        
+      .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+        
+      .form-group {
+        margin-bottom: 10px;
+      }
+        
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+        
+      input[type="password"] {
+        padding: 5px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+        
       button {
         margin-top: 20px;
+        margin-right: 20px;
       }
+    }
+
+    .contact-admin-container {
+      background-image: linear-gradient(to bottom, #dfe9f3, #ffffff);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     }
   }
 }

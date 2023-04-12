@@ -66,6 +66,17 @@ export const getCourseByDepartment = (req, res) => {
   });
 };
 
+export const getCourseByTime = (req, res) => {
+  const q = "SELECT cid,name,TIME_FORMAT(startTime, '%H:%i') AS startTime,TIME_FORMAT(endTime, '%H:%i')"+ 
+  " AS endTime,place,department,instructor,capacity,current_capacity,Term,date,description FROM courses WHERE"+
+  " startTime BETWEEN ? AND ?";
+
+  db.query(q, [req.body.startRange, req.body.endRange], (err, data) => {
+    if (err) return res.status(500).json(err);
+    return res.status(200).json(data);//array of objects
+  });
+};
+
 export const selectCourse = (req, res) => {
     const q = "SELECT * FROM enrollment WHERE uid = ? AND cid = ?";
 

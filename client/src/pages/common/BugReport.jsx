@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import './BugReport.css';
 import { Link, useNavigate} from "react-router-dom";
 import { AuthContext } from '../../context/authContext';
 
