@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
-import "./ChangePassword.css";
 import { useNavigate} from "react-router-dom";
 import { AuthContext } from '../../context/authContext';
 
@@ -62,7 +61,7 @@ function ChangePassword() {
   };
 
   return (
-    <div className="center-container">
+    <div className="ChangePassword">
       <h1>Change Password</h1>
       <form onSubmit={handleSubmit}>
         <div>

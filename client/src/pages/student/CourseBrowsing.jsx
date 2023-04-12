@@ -53,6 +53,20 @@ const CourseBrowsing = () => {
         }
     }
 
+    //search course by time
+    const [startRange, setStartRange] = useState('');
+    const [endRange, setEndRange] = useState('');
+    const handleSearchByTime = async () => {
+        try {
+          const response = await axios.post("/courses/time", {startRange: startRange, endRange: endRange});
+          setResults(response.data);
+          setResponse(null);
+          setError(null);
+        } catch (err) {
+          console.error(err);
+        }
+    }
+
     //select course
     const handleSelect = async (cid, index) => {
         try {
@@ -98,15 +112,15 @@ const CourseBrowsing = () => {
               {/* Right side */}
               <h1>Course Browsing</h1>
 
-              <p>Search by course code: </p>
+              <p style={{marginTop: '15px'}}>Search by course code: </p>
               <input placeholder="Input course code" type="text" onChange={(event) => setIdQuery(event.target.value)}/>
               <button onClick={handleSearchById} style={{marginLeft: '8px'}}>Search</button>
 
-              <p>Search by course name: </p>
+              <p style={{marginTop: '15px'}}>Search by course name: </p>
               <input placeholder="Input course name" type="text" onChange={(event) => setNameQuery(event.target.value)}/>
               <button onClick={handleSearchByName} style={{marginLeft: '8px'}}>Search</button>
 
-              <p>Search by department: </p>
+              <p style={{marginTop: '15px'}}>Search by department: </p>
               <select
                 onChange={(event) => setDepartmentQuery(event.target.value)}>
                   {departments.map((department) => (
@@ -116,6 +130,15 @@ const CourseBrowsing = () => {
                   ))}
               </select>
               <button onClick={handleSearchByDepartment} style={{marginLeft: '8px'}}>Search</button>
+
+              <p style={{marginTop: '15px'}}>Search by start time: </p>
+              <div className="input-container">
+                <p style={{marginRight: '8px'}}>From</p>
+                <input placeholder="HH:MM" type="text" onChange={(event) => setStartRange(event.target.value)}/>
+                <p style={{marginRight: '8px', marginLeft: '8px'}}>to</p>
+                <input placeholder="HH:MM" type="text" onChange={(event) => setEndRange(event.target.value)}/>
+                <button onClick={handleSearchByTime} style={{marginLeft: '8px'}}>Search</button>
+              </div>
               
               <table>
                   <thead>
@@ -157,7 +180,6 @@ const CourseBrowsing = () => {
                   ))}
                   </tbody>
               </table>
-
           </div>
         </div>
   );
