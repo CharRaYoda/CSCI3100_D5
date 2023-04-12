@@ -8,7 +8,7 @@ import Logout from './image/Logout.png';
 import SpecialAddDrop from './image/SpecialAddDrop.png';
 import CourseUpdate from './image/CourseUpdate.png';
 import GradeUpload from './image/GradeUpload.png';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const TeacherHome = () => {
     const images = [
@@ -31,7 +31,7 @@ const TeacherHome = () => {
             break;
           case 2:
             // navigate to ChangePassword
-            
+            navigate("/ChangePassword");
             break;
           case 3:
             // navigate to SpecialAddDrop

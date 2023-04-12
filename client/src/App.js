@@ -1,8 +1,6 @@
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
-  Outlet,
 } from "react-router-dom";
 import DefaultPage from "./pages/common/DefaultPage";
 import Register from "./pages/auth/Register";
@@ -22,6 +20,7 @@ import AdminViewEditUsers from "./pages/admin/ViewEditUsers";
 import AdminDeleteCourse from "./pages/admin/DeleteCourse";
 import AdminDeleteUser from "./pages/admin/DeleteUser";
 import AdminAddUser from "./pages/admin/AddUser";
+import ChangePassword from "./pages/common/ChangePassword";
 import "./style.scss"
 
 const router = createBrowserRouter([
@@ -96,6 +95,10 @@ const router = createBrowserRouter([
   {
     path: "/BugReport",
     element: <BugReport />,
+  },
+  {
+    path: "/ChangePassword",
+    element: <ChangePassword />,
   },
 ]);
 
