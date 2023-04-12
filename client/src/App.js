@@ -1,8 +1,6 @@
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
-  Outlet,
 } from "react-router-dom";
 import DefaultPage from "./pages/common/DefaultPage";
 import Register from "./pages/auth/Register";
@@ -14,6 +12,7 @@ import CourseBrowsing from "./pages/student/CourseBrowsing";
 import Profile from "./pages/student/Profile";
 import TeacherHome from "./pages/teacher/Home";
 import GradeUpload from "./pages/teacher/GradeUpload";
+import CourseUpdate from "./pages/teacher/CourseUpdate";
 import AdminHome from "./pages/admin/Home";
 import AdminEnrollmentSetting from "./pages/admin/EnrollmentSetting";
 import AdminViewEditCourses from "./pages/admin/ViewEditCourses";
@@ -22,6 +21,7 @@ import AdminViewEditUsers from "./pages/admin/ViewEditUsers";
 import AdminDeleteCourse from "./pages/admin/DeleteCourse";
 import AdminDeleteUser from "./pages/admin/DeleteUser";
 import AdminAddUser from "./pages/admin/AddUser";
+import ChangePassword from "./pages/common/ChangePassword";
 import "./style.scss"
 
 const router = createBrowserRouter([
@@ -48,6 +48,10 @@ const router = createBrowserRouter([
   {
     path: "/teacher/GradeUpload",
     element: <GradeUpload />,
+  },
+  {
+    path: "/teacher/CourseUpdate",
+    element: <CourseUpdate />,
   },
   {
     path: "/admin/home",
@@ -96,6 +100,10 @@ const router = createBrowserRouter([
   {
     path: "/BugReport",
     element: <BugReport />,
+  },
+  {
+    path: "/ChangePassword",
+    element: <ChangePassword />,
   },
 ]);
 
