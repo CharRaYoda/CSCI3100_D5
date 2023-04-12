@@ -22,40 +22,37 @@ const TeacherHome = () => {
         
         switch (index) {
           case 0:
-            // navigate to CourseUpdate
-            
+            // navigate to page 1
+            navigate("/teacher/CourseUpdate")
             break;
           case 1:
-            // navigate to GradeUpdate
-            navigate("/teacher/GradeUpload");
+            // navigate to page 2
+            navigate("/teacher/GradeUpload")
             break;
           case 2:
-            // navigate to ChangePassword
-            
+            // navigate to page 3
+            navigate("/ChangePassword")
             break;
           case 3:
-            // navigate to SpecialAddDrop
-            
+            // navigate to page 4
+            navigate("/teacher/Special AddDrop")
             break;
           case 4:
-            // navigate to BugReport
-            navigate("/BugReport");
+            // navigate to page 5
+            navigate("/BugReport")
             break;
           case 5:
-            // navigate to ClassroomBooking
-            
-            break;
-          case 6:
-            // open new tab to CampusMap
+            // navigate to page 6
             window.open('https://www.cuhk.edu.hk/chinese/campus/cuhk-campus-map.html', '_blank');
             break;
+          case 6:
+            //navigate to page 7
+            navigate("/CampusMap")
           case 7:
-            // navigate to CourseTeaching
-            
-            break;
+            navigate("/teacher/CourseTeaching")
           case 8:
-            // Log out
-            navigate('/login');
+            // navigate to login page
+             navigate("/login")
             break;
           default:
             break;
