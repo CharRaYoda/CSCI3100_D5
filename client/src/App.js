@@ -14,6 +14,7 @@ import TeacherHome from "./pages/teacher/Home";
 import GradeUpload from "./pages/teacher/GradeUpload";
 import CourseUpdate from "./pages/teacher/CourseUpdate";
 import SpecialAddDrop from "./pages/teacher/SpecialAddDrop";
+import ClassroomBooking from "./pages/teacher/ClassroomBooking";
 import AdminHome from "./pages/admin/Home";
 import AdminEnrollmentSetting from "./pages/admin/EnrollmentSetting";
 import AdminViewEditCourses from "./pages/admin/ViewEditCourses";
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
   {
     path: "/teacher/SpecialAddDrop",
     element: <SpecialAddDrop />,
+  },
+  {
+    path: "/teacher/ClassroomBooking",
+    element: <ClassroomBooking />,
   },
   {
     path: "/admin/home",

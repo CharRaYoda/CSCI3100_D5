@@ -7,6 +7,8 @@ import { useState } from 'react';
 import { AuthContext } from '../../context/authContext';
 
 {/* The backend function in this file have not well modify yell*/}
+{/* the fucntion part is exactly same as the function in Grade upload (also in the front end part)
+    So be careful in adding the backend*/}
 const GradeUpload = () => {
     const grades = ["select", "Add", "Drop"];
     const [uid, setUid] = useState('');

@@ -25,7 +25,6 @@ const ViewEditCourses = () => {
 
     useEffect(() => {
         const filterData = async() => {
-            console.log("YOOOOO")
             setVisbleData(data.filter((item)=>JSON.stringify(item.cid).includes(query)||item.name.includes(query)||item.email.includes(query)||item.role.includes(query)||item.gpa.includes(query)))
         }; if (query.length > 0){
             filterData();
