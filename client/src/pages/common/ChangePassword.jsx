@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import "./ChangePassword.css";
-import { Link, useNavigate} from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import { AuthContext } from '../../context/authContext';
 
 function ChangePassword() {
@@ -12,8 +12,6 @@ function ChangePassword() {
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [newPasswordConfirmation, setNewPasswordConfirmation] = useState('');
-  const [isCurrentPasswordValid, setIsCurrentPasswordValid] = useState(false);
-  const [isNewPasswordValid, setIsNewPasswordValid] = useState(false);
   const [isNewPasswordConfirmationValid, setIsNewPasswordConfirmationValid] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState(null);
@@ -25,7 +23,6 @@ function ChangePassword() {
   const handleNewPasswordChange = (event) => {
     const value = event.target.value;
     setNewPassword(value);
-    setIsNewPasswordValid(true);
   };
 
   const handleNewPasswordConfirmationChange = (event) => {
@@ -39,15 +36,15 @@ function ChangePassword() {
     setIsLoading(true);
     setMessage(null);
     try {
-      const response = await axios.post('/users/updatePassword', {
+      const response = await axios.put('/users/updatePassword', {
         uid: currentUid,
         currentPassword: currentPassword,
         newPassword: newPassword,
         newPasswordConfirmation: newPasswordConfirmation,
       });
-      setMessage(response.data.message);
+      setMessage(response.data);
     } catch (error) {
-      setMessage(error.response.data.message);
+      setMessage(error.response.data);
     }
     setIsLoading(false);
   };
@@ -87,10 +84,6 @@ function ChangePassword() {
             onChange={handleNewPasswordChange}
             required
           />
-          {isNewPasswordValid && <span style={{ color: 'green' }}>✓</span>}
-          {!isNewPasswordValid && newPassword !== '' && (
-            <span style={{ color: 'red' }}>✗</span>
-          )}
         </div>
         <div>
           <label htmlFor="newPasswordConfirmation">Confirm New Password:</label>
@@ -101,15 +94,11 @@ function ChangePassword() {
             onChange={handleNewPasswordConfirmationChange}
             required
           />
-          {isNewPasswordConfirmationValid && <span style={{ color: 'green' }}>✓</span>}
-          {!isNewPasswordConfirmationValid && newPasswordConfirmation !== '' && (
-            <span style={{ color: 'red' }}>✗</span>
-          )}
         </div>
-        <button type="submit" onClick={handleSubmit} disabled={!isNewPasswordConfirmationValid || isLoading}>
+        <button style={{ display: 'block', margin: '0 auto', marginTop: '20px', marginBottom: '20px', marginRight: '65px' }}
+          type="submit" onClick={handleSubmit} disabled={!isNewPasswordConfirmationValid || isLoading}>
           {isLoading ? 'Loading...' : 'Confirm'}
         </button>
-        {message && <p>{message}</p>}
       </form>
       {message && (
         <div style={{ color: message.includes('Success') ? 'green' : 'red' }}>{message}</div>

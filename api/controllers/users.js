@@ -91,3 +91,18 @@ export const delUser = (req, res) => {
   });
 });
 };
+
+export const updatePassword = (req, res) => {
+  const q = 'SELECT password FROM users WHERE uid = ?';
+  db.query(q, [req.body.uid], (err, data) => {
+    if (data[0].password != req.body.currentPassword) return res.status(400).json("Current password not match.");
+    if (req.body.newPassword != req.body.newPasswordConfirmation) return res.status(400).json("New password not match.");
+
+    const q = 'UPDATE users SET password = ? WHERE uid = ?';
+        
+    db.query(q, [req.body.newPassword, req.body.uid], (err, data) => {
+      if (err) return res.status(500).json(err);
+      return res.status(200).json("Changed password successfully.");
+    });
+  });
+}

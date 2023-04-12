@@ -5,7 +5,7 @@ import ChangePassword from './image/ChangePassword.png';
 import CampusMap from './image/CampusMap.png';
 import BugReport from './image/BugReport.png';
 import LogOut from './image/LogOut.png';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const StudentHome = () => {
     const images = [
@@ -27,6 +27,7 @@ const StudentHome = () => {
             break;
           case 2:
             // navigate to change password
+            navigate("/ChangePassword");
             break;
           case 3:
             // open new tab to campus map

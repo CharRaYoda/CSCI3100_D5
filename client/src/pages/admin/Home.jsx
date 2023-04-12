@@ -5,7 +5,7 @@ import ViewEditCourse from './image/ViewEditCourse.png';
 import ViewEditUser from './image/ViewEditUser.png';
 import BugReport from './image/BugReport.png';
 import LogOut from './image/LogOut.png';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AdminHome = () => {
     //const images = [
@@ -33,10 +33,9 @@ const AdminHome = () => {
                 // navigate to View/Edit Course page
                 navigate('/admin/ViewEditCourses');
                 break;
-
             case 2:
                 // navigate to Change Password page
-                navigate('/admin/change-password');
+                navigate('/ChangePassword');
                 break;
             case 3:
                 // navigate to Bug Report page
