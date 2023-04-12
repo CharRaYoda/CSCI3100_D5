@@ -35,7 +35,7 @@ const TeacherHome = () => {
             break;
           case 3:
             // navigate to page 4
-            navigate("/teacher/Special AddDrop")
+            navigate("/teacher/SpecialAddDrop")
             break;
           case 4:
             // navigate to page 5
@@ -48,8 +48,10 @@ const TeacherHome = () => {
           case 6:
             //navigate to page 7
             navigate("/CampusMap")
+            break;
           case 7:
             navigate("/teacher/CourseTeaching")
+            break;
           case 8:
             // navigate to login page
              navigate("/login")
