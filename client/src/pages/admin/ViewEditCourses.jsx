@@ -38,7 +38,7 @@ const ViewEditCourses = () => {
 
 
     return (
-        <div className='CourseBrowsing'>
+        <div className='ViewEditCourses'>
         <div className='navBar' style={{ width: '200px', backgroundColor: '#DFE2F3', height: '100vh', position: 'fixed', left: 0 }}>
             <h1 className='menu' style={{ display: 'flex', justifyContent: 'center' }}>Menu</h1>
             <ul style={{ listStyleType: 'none', padding: 0 }}>
@@ -72,7 +72,8 @@ const ViewEditCourses = () => {
             <input type='cid' 
             className='ViewClassSearch' 
             placeholder='Search Course by courseID' 
-            onChange={e=> setQuery(e.target.value)} />
+            onChange={e=> setQuery(e.target.value)}
+            style={{ width: '200px' }} />
             
             
             {<Table data={visbleData} />}

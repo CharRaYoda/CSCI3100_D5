@@ -9,8 +9,8 @@ export const register = (req, res) => {
     if (err) return res.status(500).json(err);
     if (data.length) return res.status(409).json("User already exists.");
 
-    const q = "INSERT INTO users(`uid`,`password`, `email`,`role`) VALUES (?)";
-    const values = [req.body.uid, req.body.password, req.body.email, req.body.role];
+    const q = "INSERT INTO users(`uid`,`password`, `name`, `email`,`role`) VALUES (?)";
+    const values = [req.body.uid, req.body.password, req.body.name, req.body.email, req.body.role];
 
     db.query(q, [values], (err, data) => {
       if (err) return res.status(500).json(err);

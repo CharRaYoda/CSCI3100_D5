@@ -5,7 +5,8 @@ import {
   selectCourse,
   getCourseByDepartment,
   addCourse,
-  delCourse
+  delCourse,
+  getAllCourses
 } from "../controllers/courses.js";
 
 const router = express.Router();
@@ -13,7 +14,8 @@ const router = express.Router();
 router.get("/id/:courseId", getCourseByID);
 router.get("/name/:courseName", getCourseByName);
 router.get("/department/:courseDepartment", getCourseByDepartment);
-router.get("/:courseID", getCourseByID);
+router.get("/:courseId", getCourseByID);
+router.get("/", getAllCourses);
 router.post("/", addCourse);
 router.post("/del", delCourse);
 router.post("/selectCourse", selectCourse);

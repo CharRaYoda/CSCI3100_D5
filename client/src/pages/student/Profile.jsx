@@ -9,15 +9,20 @@ import { AuthContext } from '../../context/authContext';
 const Profile = () => {
     const { currentUser } = useContext(AuthContext);
     const [results, setResults] = useState([]);
+    const [cgpa, setCgpa] = useState();
+    const grades = ["A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "F"];
 
     //fetch selected courses when rendering in the beginning
     useEffect(() => {
         async function fetchData() {
-            const response = await axios.get(`/enrollments/${currentUser.uid}`);
-            setResults(response.data);
+            const response = await axios.get(`/enrollments/cgpa/${currentUser.uid}`);
+            setCgpa(response.data);
+            const response2 = await axios.get(`/enrollments/${currentUser.uid}`);
+            setResults(response2.data);
         }
         fetchData();
     },[]);
+
 
     const handleDrop = async (cid) => {
         try {
@@ -53,32 +58,43 @@ const Profile = () => {
             <div style={{ marginLeft: '220px' }}>
                 {/* Right side */}
                 <h1>Profile</h1>
-                <h1>{currentUser.uid}</h1>
+                <h1>{currentUser.name}</h1>
+                <h1>CGPA: {cgpa}</h1>
 
                 <h2>Your selected courses: </h2>
                 <table>
                   <thead>
                   <tr>
+                      <th style={{padding: '8px'}}>Term</th>
                       <th style={{padding: '8px'}}>Course Code</th>
                       <th style={{padding: '8px'}}>Name</th>
+                      <th style={{padding: '8px'}}>Weekday</th>
                       <th style={{padding: '8px'}}>Time</th>
                       <th style={{padding: '8px'}}>Place</th>
                       <th style={{padding: '8px'}}>Department</th>
                       <th style={{padding: '8px'}}>Instructor</th>
                       <th style={{padding: '8px'}}>Capacity</th>
+                      <th style={{padding: '8px'}}>Description</th>
+                      <th style={{padding: '8px'}}>Grade</th>
                   </tr>
                   </thead>
                   <tbody>
                   {results.map((result) => (
                       <tr key={result.cid}>
+                      <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.Term}</td>
                       <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.cid}</td>
                       <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.name}</td>
+                      <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.date}</td>
                       <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.startTime}-{result.endTime}</td>
                       <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.place}</td>
                       <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.department}</td>
                       <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.instructor}</td>
                       <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.current_capacity}/{result.capacity}</td>
-                      <td><button onClick={() => handleDrop(result.cid)}>Drop</button></td>
+                      <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.description}</td>
+                      <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.grade}</td>
+                      {!grades.includes(result.grade) && (
+                        <td><button onClick={() => handleDrop(result.cid)}>Drop</button></td>
+                      )}
                       {/* show response or err if button is clicked*/}
                       </tr>
                   ))}

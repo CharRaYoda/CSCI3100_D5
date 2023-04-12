@@ -8,6 +8,7 @@ const Register = () => {
   const [inputs, setInputs] = useState({
     uid:"",
     password:"",
+    name:"",
     email:"",
     role:roles[0],
   });
@@ -24,7 +25,6 @@ const Register = () => {
     e.preventDefault();
     try {
       await axios.post("/auth/register", inputs);
-      //console.log(res)
       navigate("/Login");
     } catch (err) {
       setError(err.response.data);
@@ -49,6 +49,14 @@ const Register = () => {
           type="password"
           placeholder="password"
           name="password"
+          onChange={handleChange}
+        />
+
+        <input
+          required
+          type="text"
+          placeholder="name"
+          name="name"
           onChange={handleChange}
         />
 

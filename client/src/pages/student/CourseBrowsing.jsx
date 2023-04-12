@@ -71,7 +71,7 @@ const CourseBrowsing = () => {
           setError(err.response.data);
           setResponse(null);
         }
-    };
+    }
 
     return (
         <div className='CourseBrowsing'>
@@ -97,7 +97,6 @@ const CourseBrowsing = () => {
           <div style={{ marginLeft: '220px' }}>
               {/* Right side */}
               <h1>Course Browsing</h1>
-              <h1>{currentUser.uid}</h1>
 
               <p>Search by course code: </p>
               <input placeholder="Input course code" type="text" onChange={(event) => setIdQuery(event.target.value)}/>
@@ -121,25 +120,31 @@ const CourseBrowsing = () => {
               <table>
                   <thead>
                   <tr>
+                      <th style={{padding: '8px'}}>Term</th>
                       <th style={{padding: '8px'}}>Course Code</th>
                       <th style={{padding: '8px'}}>Name</th>
+                      <th style={{padding: '8px'}}>Weekday</th>
                       <th style={{padding: '8px'}}>Time</th>
                       <th style={{padding: '8px'}}>Place</th>
                       <th style={{padding: '8px'}}>Department</th>
                       <th style={{padding: '8px'}}>Instructor</th>
                       <th style={{padding: '8px'}}>Capacity</th>
+                      <th style={{padding: '8px'}}>Description</th>
                   </tr>
                   </thead>
                   <tbody>
                   {results.map((result, index) => (
                       <tr key={result.cid}>
+                      <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.Term}</td>
                       <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.cid}</td>
                       <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.name}</td>
+                      <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.date}</td>
                       <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.startTime}-{result.endTime}</td>
                       <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.place}</td>
                       <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.department}</td>
                       <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.instructor}</td>
                       <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.current_capacity}/{result.capacity}</td>
+                      <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.description}</td>
                       <td><button onClick={() => handleSelect(result.cid, index)}>Select</button></td>
                       {/* show response or err if button is clicked*/}
                       {selectedIndex === index && (

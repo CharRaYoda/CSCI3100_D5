@@ -54,7 +54,6 @@ $lightPurple: #f2f2fc;
       }
     }
 
-    //Student home
     .studentHome {
       display: flex;
       flex-direction: column;
@@ -70,7 +69,6 @@ $lightPurple: #f2f2fc;
       
     }
 
-    //Course Browsing
     .CourseBrowsing {
       background-color: $lightPurple;
       height: 100vh;
@@ -91,7 +89,6 @@ $lightPurple: #f2f2fc;
       }
     }
 
-    //Profile
     .Profile {
       background-color: $lightPurple;
       height: 100vh;
@@ -112,7 +109,126 @@ $lightPurple: #f2f2fc;
       }
     }
 
-    //Grade upload
+    .ViewEditCourses {
+      background-color: $lightPurple;
+      height: 100vh;
+
+      h1:not(.menu) {
+        font-size: 70px;
+        color: #4147d5;
+        margin-bottom: 20px;
+        margin-left: 20px;
+      }
+
+      .err {
+        color: red;
+      }
+
+      .response {
+        color: red;
+      }
+    }
+
+    .ViewEditUsers {
+      background-color: $lightPurple;
+      height: 100vh;
+
+      h1:not(.menu) {
+        font-size: 70px;
+        color: #4147d5;
+        margin-bottom: 20px;
+        margin-left: 20px;
+      }
+
+      .err {
+        color: red;
+      }
+
+      .response {
+        color: red;
+      }
+    }
+
+    .AddCourse {
+      background-color: $lightPurple;
+      height: 100vh;
+
+      h1:not(.menu) {
+        font-size: 70px;
+        color: #4147d5;
+        margin-bottom: 20px;
+        margin-left: 20px;
+      }
+
+      .err {
+        color: red;
+      }
+
+      .response {
+        color: red;
+      }
+    }
+
+    .AddUser {
+      background-color: $lightPurple;
+      height: 100vh;
+
+      h1:not(.menu) {
+        font-size: 70px;
+        color: #4147d5;
+        margin-bottom: 20px;
+        margin-left: 20px;
+      }
+
+      .err {
+        color: red;
+      }
+
+      .response {
+        color: red;
+      }
+    }
+
+    .DeleteCourse {
+      background-color: $lightPurple;
+      height: 100vh;
+
+      h1:not(.menu) {
+        font-size: 70px;
+        color: #4147d5;
+        margin-bottom: 20px;
+        margin-left: 20px;
+      }
+
+      .err {
+        color: red;
+      }
+
+      .response {
+        color: red;
+      }
+    }
+
+    .DeleteUser {
+      background-color: $lightPurple;
+      height: 100vh;
+
+      h1:not(.menu) {
+        font-size: 70px;
+        color: #4147d5;
+        margin-bottom: 20px;
+        margin-left: 20px;
+      }
+
+      .err {
+        color: red;
+      }
+
+      .response {
+        color: red;
+      }
+    }
+
     .GradeUpload {
       background-color: $lightPurple;
       height: 100vh;
@@ -133,7 +249,6 @@ $lightPurple: #f2f2fc;
       }
     }
 
-    //Bug report
     .bug-report-container {
       button {
         margin-top: 20px;

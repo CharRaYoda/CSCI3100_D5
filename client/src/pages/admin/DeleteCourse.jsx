@@ -25,7 +25,7 @@ const DeleteCourse = () => {
     }
 
     return (
-        <div className='CourseBrowsing'>
+        <div className='DeleteCourse'>
         <div className='navBar' style={{ width: '200px', backgroundColor: '#DFE2F3', height: '100vh', position: 'fixed', left: 0 }}>
             <h1 className='menu' style={{ display: 'flex', justifyContent: 'center' }}>Menu</h1>
             <ul style={{ listStyleType: 'none', padding: 0 }}>
