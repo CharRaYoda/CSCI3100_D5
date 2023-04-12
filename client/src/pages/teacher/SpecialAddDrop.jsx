@@ -8,7 +8,7 @@ import { AuthContext } from '../../context/authContext';
 
 {/* The backend function in this file have not well modify yell*/}
 const GradeUpload = () => {
-    const grades = ["select", "A", "Add", "Drop"];
+    const grades = ["select", "Add", "Drop"];
     const [uid, setUid] = useState('');
     const [cid, setCid] = useState('');
     const [grade, setGrade] = useState(grades[0]);
@@ -62,6 +62,8 @@ const GradeUpload = () => {
                         </option>
                     ))}
                 </select>
+                <br/>
+                <br/>
                 <button onClick={handleGradeUpload} style={{marginLeft: '8px', marginBottom: '20px'}}>Upload</button>
                 {response && <p className="response">{response}</p>}
                 {err && <p className="err">{err}</p>}
