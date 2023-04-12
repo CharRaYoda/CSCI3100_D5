@@ -8,37 +8,41 @@ import LogOut from './image/LogOut.png';
 import { Link, useNavigate } from "react-router-dom";
 
 const AdminHome = () => {
+    //const images = [
+    //    EnrollmentSetting, ViewEditUser, ViewEditCourse, ChangePassword, BugReport, LogOut
+    //];
+
     const images = [
-        EnrollmentSetting, ViewEditUser, ViewEditCourse, ChangePassword, BugReport, LogOut
-    ];
+            ViewEditUser, ViewEditCourse, ChangePassword, BugReport, LogOut
+        ];
 
     const navigate = useNavigate();
 
     const handleClick = (index) => {
         
         switch (index) {
-            case 0:
+            //case 0:
                 // navigate to Enrollment Setting page
-                navigate('/admin/EnrollmentSetting');
-                break;
-            case 1:
+            //    navigate('/admin/EnrollmentSetting');
+            //    break;
+            case 0:
                 // navigate to View/Edit User page
                 navigate('/admin/ViewEditUsers');
                 break;
-            case 2:
+            case 1:
                 // navigate to View/Edit Course page
                 navigate('/admin/ViewEditCourses');
                 break;
 
-            case 3:
+            case 2:
                 // navigate to Change Password page
                 navigate('/admin/change-password');
                 break;
-            case 4:
+            case 3:
                 // navigate to Bug Report page
                 navigate('/BugReport');
                 break;
-            case 5:
+            case 4:
                 // navigate to Log Out page
                 localStorage.clear();
                 navigate('/login');
