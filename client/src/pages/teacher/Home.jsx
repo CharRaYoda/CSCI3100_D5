@@ -43,11 +43,11 @@ const TeacherHome = () => {
             break;
           case 5:
             // navigate to page 6
-            window.open('https://www.cuhk.edu.hk/chinese/campus/cuhk-campus-map.html', '_blank');
+            navigate("/teacher/ClassroomBooking");
             break;
           case 6:
             //navigate to page 7
-            navigate("/CampusMap")
+            window.open('https://www.cuhk.edu.hk/chinese/campus/cuhk-campus-map.html', '_blank');
             break;
           case 7:
             navigate("/teacher/CourseTeaching")
