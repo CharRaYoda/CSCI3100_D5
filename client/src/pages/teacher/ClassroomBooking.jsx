@@ -53,9 +53,9 @@ const AddCourse = () => {
             <div>
             <a>Booking Class by input the imformation below</a>
             <div>
-            <form onSubmit={handleSubmit}>\
+            <form onSubmit={handleSubmit}>
                     {/*Inputting the Course ID , name is setting to cid*/}
-                    <label>Enter your Course ID:
+                    <label>Enter your Course ID:        
                     <input 
                         type="text" 
                         name="cid" 
@@ -65,7 +65,7 @@ const AddCourse = () => {
                     </label>
                     <div>
                     {/*Inputting the Venue , name is setting to Term */}
-                    <label>Enter the Venue
+                    <label>Enter the Venue:     
                     <input 
                         type="text" 
                         name="Term" 
@@ -76,7 +76,7 @@ const AddCourse = () => {
                     </div>
                     {/*Inputting the Starting Time , name is setting to name */}
                     <div>
-                    <label>Enter the Starting Time:
+                    <label>Enter the Starting Time:     
                     <input 
                         type="text" 
                         name="name" 
@@ -87,7 +87,7 @@ const AddCourse = () => {
                     </div>
                     {/*Inputting the Ending Time , name is setting to department */}
                     <div>
-                    <label>Enter the Ending Time:
+                    <label>Enter the Ending Time:       
                     <input 
                         type="text" 
                         name="department" 
