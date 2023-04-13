@@ -110,16 +110,6 @@ const AddUser = () => {
             ))}
         </select>
                     </div>
-                    <div>
-                    <label>Enter User GPA:
-                    <input 
-                        type="text" 
-                        name="gpa" 
-                        value={inputs.gpa || ""} 
-                        onChange={handleChange}
-                    />
-                    </label>
-                    </div>
                 <input type="submit" />
             </form>
             
