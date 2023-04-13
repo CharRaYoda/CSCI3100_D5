@@ -1,11 +1,13 @@
 import express from "express";
-import { getEnrollment, getCgpa, dropEnrollment, GradeUpload } from "../controllers/enrollments.js";
+import { GetEnrollment, GetCgpa, SelectCourse, DropEnrollment, GradeUpload, SpecialAddDrop } from "../controllers/enrollments.js";
 
 const router = express.Router();
 
-router.get("/:uid", getEnrollment);
-router.get("/cgpa/:uid", getCgpa);
-router.post("/drop", dropEnrollment);
+router.get("/:uid", GetEnrollment);
+router.get("/cgpa/:uid", GetCgpa);
+router.post("/SelectCourse", SelectCourse);
+router.post("/drop", DropEnrollment);
 router.put("/GradeUpload", GradeUpload);
+router.post("/SpecialAddDrop", SpecialAddDrop);
 
 export default router;

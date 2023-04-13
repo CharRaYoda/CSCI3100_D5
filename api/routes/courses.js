@@ -2,12 +2,12 @@ import express from "express";
 import {
   getCourseByID,
   getCourseByName,
-  selectCourse,
   getCourseByDepartment,
   addCourse,
   delCourse,
   getAllCourses,
-  getCourseByTime
+  getCourseByTime,
+  courseUpdate
 } from "../controllers/courses.js";
 
 const router = express.Router();
@@ -20,6 +20,6 @@ router.get("/:courseId", getCourseByID);
 router.get("/", getAllCourses);
 router.post("/", addCourse);
 router.post("/del", delCourse);
-router.post("/selectCourse", selectCourse);
+router.put("/CourseUpdate", courseUpdate);
 
 export default router;

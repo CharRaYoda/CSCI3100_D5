@@ -1,25 +1,21 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Search from './image/Search.png'
 import ReturnHome from './image/ReturnHome.png'
 import axios from "axios";
 import { useState } from 'react';
-import { AuthContext } from '../../context/authContext';
 
-{/* The backend function in this file have not well modify yell*/}
-{/* the fucntion part is exactly same as the function in Grade upload (also in the front end part)
-    So be careful in adding the backend*/}
-const GradeUpload = () => {
-    const grades = ["select", "Add", "Drop"];
+const SpecialAddDrop = () => {
+    const actions = ["select", "Add", "Drop"];
     const [uid, setUid] = useState('');
     const [cid, setCid] = useState('');
-    const [grade, setGrade] = useState(grades[0]);
+    const [action, setAction] = useState(actions[0]);
     const [response, setResponse] = useState(null);
     const [err, setError] = useState(null);
 
-    const handleGradeUpload = async () => {
+    const handleSubmit = async () => {
         try {
-          const response = await axios.put("/enrollments/GradeUpload", {uid: uid, cid: cid, grade: grade});
+          const response = await axios.post("/enrollments/SpecialAddDrop", {uid: uid, cid: cid, action: action});
           setResponse(response.data);
           setError(null);
         } catch (err) {
@@ -29,7 +25,7 @@ const GradeUpload = () => {
     }
 
     return (
-        <div className='GradeUpload'>
+        <div className='SpecialAddDrop'>
             <div className='navBar' style={{ width: '200px', backgroundColor: '#DFE2F3', height: '100vh', position: 'fixed', left: 0 }}>
               <h1 className='menu' style={{ display: 'flex', justifyContent: 'center' }}>Menu</h1>
               <ul style={{ listStyleType: 'none', padding: 0 }}>
@@ -53,20 +49,20 @@ const GradeUpload = () => {
                 <h1>Special Add/Drop</h1>
                 <p>Input student ID: </p>
                 <input placeholder="Student ID" type="text" onChange={(event) => setUid(event.target.value)}/>
-                <p style={{ marginTop: '20px' }}>Input course ID: </p>
+                <p style={{ marginTop: '20px' }}>Input course code: </p>
                 <input placeholder="Course ID" type="text" onChange={(event) => setCid(event.target.value)}/>
                 <p style={{ marginTop: '20px' }}>Select Action: </p>
                 <select
-                    onChange={(event) => setGrade(event.target.value)}>
-                    {grades.map((grade) => (
-                        <option value={grade} key={grade}>
-                        {grade}
+                    onChange={(event) => setAction(event.target.value)}>
+                    {actions.map((action) => (
+                        <option value={action} key={action}>
+                        {action}
                         </option>
                     ))}
                 </select>
                 <br/>
                 <br/>
-                <button onClick={handleGradeUpload} style={{marginLeft: '8px', marginBottom: '20px'}}>Upload</button>
+                <button onClick={handleSubmit} style={{marginBottom: '20px'}}>Upload</button>
                 {response && <p className="response">{response}</p>}
                 {err && <p className="err">{err}</p>}
             </div>
@@ -74,4 +70,4 @@ const GradeUpload = () => {
     );
 };
 
-export default GradeUpload;
+export default SpecialAddDrop;

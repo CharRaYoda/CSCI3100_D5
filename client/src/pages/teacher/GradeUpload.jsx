@@ -50,7 +50,7 @@ const GradeUpload = () => {
                 <h1>Upload Grade</h1>
                 <p>Input student ID: </p>
                 <input placeholder="Student ID" type="text" onChange={(event) => setUid(event.target.value)}/>
-                <p style={{ marginTop: '20px' }}>Input course ID: </p>
+                <p style={{ marginTop: '20px' }}>Input course code: </p>
                 <input placeholder="Course ID" type="text" onChange={(event) => setCid(event.target.value)}/>
                 <p style={{ marginTop: '20px' }}>Select Grade: </p>
                 <select

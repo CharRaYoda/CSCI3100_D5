@@ -1,6 +1,6 @@
 import { db } from "../db.js";
 
-export const getEnrollment = (req, res) => {
+export const GetEnrollment = (req, res) => {
     const q = "SELECT C.cid,name,TIME_FORMAT(startTime, '%H:%i') AS startTime,TIME_FORMAT(endTime, '%H:%i')"+
     " AS endTime,place,department,instructor,capacity,current_capacity,Term,date,description,grade"
     +" FROM courses C JOIN enrollment E on C.cid=E.cid WHERE uid = ?";
@@ -11,7 +11,7 @@ export const getEnrollment = (req, res) => {
     });
 };
 
-export const getCgpa = (req, res) => {
+export const GetCgpa = (req, res) => {
     const q = "SELECT ROUND(AVG(point), 2) AS cgpa FROM enrollment WHERE uid = ?";
 
     db.query(q, [req.params.uid], (err, data) => {
@@ -20,7 +20,34 @@ export const getCgpa = (req, res) => {
     });
 };
 
-export const dropEnrollment = (req, res) => {
+export const SelectCourse = (req, res) => {
+  const q = "SELECT * FROM enrollment WHERE uid = ? AND cid = ?";
+
+  db.query(q, [req.body.uid, req.body.cid], (err, data) => {
+    if (err) return res.status(500).json(err);
+    if (data.length) return res.status(409).json("Already enrolled in this course.");
+
+    const q = "SELECT current_capacity, capacity FROM courses WHERE cid = ?";
+    db.query(q, [req.body.cid], (err, data) => {
+      if (err) return res.status(500).json(err);
+      if (data[0].current_capacity == data[0].capacity) return res.status(409).json("This course is already fulled.");
+
+      const q = "INSERT INTO enrollment(`uid`,`cid`) VALUES (?)";
+      const values = [req.body.uid, req.body.cid];
+
+      db.query(q, [values], (err, data) => {
+        if (err) return res.status(500).json(err);
+        const q = "UPDATE courses SET current_capacity = current_capacity+1 WHERE cid = ?";
+        db.query(q, [req.body.cid], (err, data) => {
+          if (err) return res.status(500).json(err);
+          return res.status(200).json("Enrolled successfully.");
+        })
+      });
+    });
+  });
+};
+
+export const DropEnrollment = (req, res) => {
     const q = "DELETE FROM enrollment WHERE uid = ? AND cid = ?";
 
     db.query(q, [req.body.uid, req.body.cid], (err, data) => {
@@ -35,6 +62,8 @@ export const dropEnrollment = (req, res) => {
 };
 
 export const GradeUpload = (req, res) => {
+  if (!req.body.uid) return res.status(409).json("Please enter student ID.");
+  if (!req.body.cid) return res.status(409).json("Please enter course code.");
   if (req.body.grade === "select") return res.status(409).json("Please select a grade.");
 
   const q = "SELECT * FROM enrollment WHERE uid = ? AND cid = ?";
@@ -64,3 +93,43 @@ export const GradeUpload = (req, res) => {
     });
   });
 };
+
+export const SpecialAddDrop = (req, res) => {
+  if (!req.body.uid) return res.status(409).json("Please enter student ID.");
+  if (!req.body.cid) return res.status(409).json("Please enter course code.");
+  if (req.body.action === "select") return res.status(409).json("Please select an action.");
+
+  if (req.body.action === "Add"){
+    const q = "SELECT * FROM enrollment WHERE uid = ? AND cid = ?";
+    db.query(q, [req.body.uid, req.body.cid], (err, data) => {
+      if (err) return res.status(500).json(err);
+      if (data.length) return res.status(409).json("The student is already in this course.");
+      const q = "INSERT INTO enrollment(`uid`, `cid`) VALUES (?,?)";
+      db.query(q, [req.body.uid, req.body.cid], (err, data) => {
+        if (err) return res.status(500).json(err);
+        const q = "UPDATE courses SET current_capacity = current_capacity+1 WHERE cid = ?";
+          db.query(q, [req.body.cid], (err, data) => {
+            if (err) return res.status(500).json(err);
+            return res.status(200).json("Special added successfully.");
+          })
+      });
+    });
+  }
+
+  if (req.body.action === "Drop"){
+    const q = "SELECT * FROM enrollment WHERE uid = ? AND cid = ?";
+    db.query(q, [req.body.uid, req.body.cid], (err, data) => {
+      if (err) return res.status(500).json(err);
+      if (!data.length) return res.status(409).json("Wrong student ID or course code.");
+      const q = "DELETE FROM enrollment WHERE uid = ? AND cid = ?";
+      db.query(q, [req.body.uid, req.body.cid], (err, data) => {
+        if (err) return res.status(500).json(err);
+        const q = "UPDATE courses SET current_capacity = current_capacity-1 WHERE cid = ?";
+          db.query(q, [req.body.cid], (err, data) => {
+            if (err) return res.status(500).json(err);
+            return res.status(200).json("Special dropped successfully.");
+          })
+      });
+    });
+  }
+}

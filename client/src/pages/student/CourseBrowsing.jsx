@@ -70,7 +70,7 @@ const CourseBrowsing = () => {
     //select course
     const handleSelect = async (cid, index) => {
         try {
-          const response = await axios.post("/courses/selectCourse", {uid: currentUser.uid, cid: cid});
+          const response = await axios.post("/enrollments/SelectCourse", {uid: currentUser.uid, cid: cid});
           setSelectedIndex(index);
           setResponse(response.data);
           setError(null);

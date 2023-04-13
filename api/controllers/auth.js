@@ -4,10 +4,8 @@ export const register = (req, res) => {
   if (req.body.role === "select") return res.status(409).json("Please select your role.");
   //Check existing user
   const q = "SELECT * FROM users WHERE uid = ?";
-  console.log("1234");
   db.query(q, [req.body.uid], (err, data) => {
-    //if (err) return res.status(500).json(err);
-    if (err) throw err;
+    if (err) return res.status(500).json(err);
     if (data.length) return res.status(409).json("User already exists.");
 
     const q = "INSERT INTO users(`uid`,`password`, `name`, `email`,`role`) VALUES (?)";

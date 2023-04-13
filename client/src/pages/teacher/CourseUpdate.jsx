@@ -1,23 +1,19 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Add from './image/add.png'
 import ReturnHome from './image/ReturnHome.png'
 import axios from "axios";
 import { useState } from 'react';
-import { AuthContext } from '../../context/authContext';
 
-{/* The backend function in this file have not well modify yell*/}
-const GradeUpload = () => {
-    const grades = ["select", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "F"];
-    const [uid, setUid] = useState('');
+const CourseUpdate = () => {
     const [cid, setCid] = useState('');
-    const [grade, setGrade] = useState('');
+    const [description, setDescription] = useState('');
     const [response, setResponse] = useState(null);
     const [err, setError] = useState(null);
 
-    const handleGradeUpload = async () => {
+    const handleCourseUpdate = async () => {
         try {
-          const response = await axios.put("/enrollments/GradeUpload", {uid: uid, cid: cid, grade: grade});
+          const response = await axios.put("/courses/CourseUpdate", {cid: cid, description: description});
           setResponse(response.data);
           setError(null);
         } catch (err) {
@@ -27,7 +23,7 @@ const GradeUpload = () => {
     }
 
     return (
-        <div className='GradeUpload'>
+        <div className='CourseUpdate'>
             <div className='navBar' style={{ width: '200px', backgroundColor: '#DFE2F3', height: '100vh', position: 'fixed', left: 0 }}>
               <h1 className='menu' style={{ display: 'flex', justifyContent: 'center' }}>Menu</h1>
               <ul style={{ listStyleType: 'none', padding: 0 }}>
@@ -50,20 +46,16 @@ const GradeUpload = () => {
             <div style={{ marginLeft: '220px' }}>
                 <h1>Course Update</h1>
                 <p>Input Course ID: </p>
-                <input placeholder="Course ID" type="text" onChange={(event) => setUid(event.target.value)}/>
-                {/*
-                <p style={{ marginTop: '20px' }}>Input Course Outline: </p>
-                <input placeholder="Course Outline" type="textarea" onChange={(event) => setCid(event.target.value)} 
-                style={{ width: "400px", height: "100px" }}/> 
-                */}
+                <input placeholder="Course ID" type="text" onChange={(event) => setCid(event.target.value)}/>
                 <p style={{ marginTop: '20px' }}>Input Course Desciption: </p>
                 <div>
                     <textarea 
-                        placeholder="Enter course outline here" 
+                        placeholder="Enter course description here" 
                         style={{ width: "400px", height: "100px" }}
+                        onChange={(event) => setDescription(event.target.value)}
                     />
                 </div>
-                <button onClick={handleGradeUpload} style={{marginLeft: '8px', marginBottom: '20px'}}>Upload</button>
+                <button onClick={handleCourseUpdate} style={{marginLeft: '8px', marginBottom: '20px'}}>Upload</button>
                 {response && <p className="response">{response}</p>}
                 {err && <p className="err">{err}</p>}
             </div>
@@ -71,4 +63,4 @@ const GradeUpload = () => {
     );
 };
 
-export default GradeUpload;
+export default CourseUpdate;

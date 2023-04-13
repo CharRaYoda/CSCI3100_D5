@@ -13,6 +13,7 @@ import Profile from "./pages/student/Profile";
 import TeacherHome from "./pages/teacher/Home";
 import GradeUpload from "./pages/teacher/GradeUpload";
 import CourseUpdate from "./pages/teacher/CourseUpdate";
+import CourseTeaching from "./pages/teacher/CourseTeaching";
 import SpecialAddDrop from "./pages/teacher/SpecialAddDrop";
 import ClassroomBooking from "./pages/teacher/ClassroomBooking";
 import AdminHome from "./pages/admin/Home";
@@ -44,6 +45,14 @@ const router = createBrowserRouter([
     element: <StudentHome />,
   },
   {
+    path: "/student/CourseBrowsing",
+    element: <CourseBrowsing />,
+  },
+  {
+    path: "/student/profile",
+    element: <Profile />,
+  },
+  {
     path: "/teacher/home",
     element: <TeacherHome />,
   },
@@ -54,6 +63,10 @@ const router = createBrowserRouter([
   {
     path: "/teacher/CourseUpdate",
     element: <CourseUpdate />,
+  },
+  {
+    path: "/teacher/CourseTeaching",
+    element: <CourseTeaching />,
   },
   {
     path: "/teacher/SpecialAddDrop",
@@ -94,14 +107,6 @@ const router = createBrowserRouter([
   {
     path: "/admin/ViewEditUsers/DeleteUsers",
     element: <AdminDeleteUser />,
-  },
-  {
-    path: "/student/CourseBrowsing",
-    element: <CourseBrowsing />,
-  },
-  {
-    path: "/student/profile",
-    element: <Profile />,
   },
   {
     path: "/ContactAdmin",

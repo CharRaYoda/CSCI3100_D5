@@ -254,6 +254,66 @@ $lightPurple: #f2f2fc;
       }
     }
 
+    .CourseTeaching {
+      background-color: $lightPurple;
+      height: 100vh;
+
+      h1:not(.menu) {
+        font-size: 70px;
+        color: #4147d5;
+        margin-bottom: 20px;
+        margin-left: 20px;
+      }
+
+      .err {
+        color: red;
+      }
+
+      .response {
+        color: red;
+      }
+    }
+
+    .CourseUpdate {
+      background-color: $lightPurple;
+      height: 100vh;
+
+      h1:not(.menu) {
+        font-size: 70px;
+        color: #4147d5;
+        margin-bottom: 20px;
+        margin-left: 20px;
+      }
+
+      .err {
+        color: red;
+      }
+
+      .response {
+        color: red;
+      }
+    }
+
+    .SpecialAddDrop {
+      background-color: $lightPurple;
+      height: 100vh;
+
+      h1:not(.menu) {
+        font-size: 70px;
+        color: #4147d5;
+        margin-bottom: 20px;
+        margin-left: 20px;
+      }
+
+      .err {
+        color: red;
+      }
+
+      .response {
+        color: red;
+      }
+    }
+
     .course-selection-system-container {
       background-image: url('./pages/common/image/DefaultBackground.jpg');
       background-size: cover;
