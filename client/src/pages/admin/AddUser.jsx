@@ -62,6 +62,16 @@ const AddUser = () => {
             <a>Add User by entering Course Info</a>
             <div>
             <form onSubmit={handleSubmit}>
+            <div>
+                    <label>Enter User Name:
+                    <input 
+                        type="text" 
+                        name="username" 
+                        value={inputs.username || ""} 
+                        onChange={handleChange}
+                    />
+                    </label>
+                    </div>
                     <label>Enter the User ID:
                     <input 
                         type="text" 

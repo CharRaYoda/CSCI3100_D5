@@ -100,7 +100,6 @@ export const courseUpdate = (req, res) => {
 };
 
 export const ClassroomUpdate = (req, res) => {
-  console.log("test 0")
 
   const qq = "SELECT * FROM courses WHERE (startTime BETWEEN ? AND ?)";
   db.query(qq, [req.body.startTime, req.body.endTime], (err, data) => {
