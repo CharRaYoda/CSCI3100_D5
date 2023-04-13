@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 const AddCourse = () => {
     const [inputs, setInputs] = useState({});
+    const [err, setError] = useState(null);
     
     const handleChange = (event) => {
         const name = event.target.name;

@@ -22,31 +22,40 @@ export const GetCgpa = (req, res) => {
 
 export const SelectCourse = (req, res) => {
   const q = "SELECT * FROM enrollment_period";
+
   db.query(q, (err, data) => {
     if (err) return res.status(500).json(err);
     if (data[0].canSelect == 0) return res.status(409).json("The enrollment period is closed.");
 
-    const q = "SELECT * FROM enrollment WHERE uid = ? AND cid = ?";
+    const q = "SELECT COUNT(*) AS count FROM enrollment WHERE uid = ?";
 
-    db.query(q, [req.body.uid, req.body.cid], (err, data) => {
+    db.query(q, [req.body.uid], (err, data) => {
       if (err) return res.status(500).json(err);
-      if (data.length) return res.status(409).json("Already enrolled in this course.");
+      if (data[0].count == 6) return res.status(409).json("You cannot exceed the course taking limit.");
 
-      const q = "SELECT current_capacity, capacity FROM courses WHERE cid = ?";
-      db.query(q, [req.body.cid], (err, data) => {
+      const q = "SELECT * FROM enrollment WHERE uid = ? AND cid = ?";
+
+      db.query(q, [req.body.uid, req.body.cid], (err, data) => {
         if (err) return res.status(500).json(err);
-        if (data[0].current_capacity == data[0].capacity) return res.status(409).json("This course is already fulled.");
+        if (data.length) return res.status(409).json("Already enrolled in this course.");
 
-        const q = "INSERT INTO enrollment(`uid`,`cid`) VALUES (?)";
-        const values = [req.body.uid, req.body.cid];
-
-        db.query(q, [values], (err, data) => {
+        const q = "SELECT current_capacity, capacity FROM courses WHERE cid = ?";
+        
+        db.query(q, [req.body.cid], (err, data) => {
           if (err) return res.status(500).json(err);
-          const q = "UPDATE courses SET current_capacity = current_capacity+1 WHERE cid = ?";
-          db.query(q, [req.body.cid], (err, data) => {
+          if (data[0].current_capacity == data[0].capacity) return res.status(409).json("This course is already fulled.");
+
+          const q = "INSERT INTO enrollment(`uid`,`cid`) VALUES (?)";
+          const values = [req.body.uid, req.body.cid];
+
+          db.query(q, [values], (err, data) => {
             if (err) return res.status(500).json(err);
-            return res.status(200).json("Enrolled successfully.");
-          })
+            const q = "UPDATE courses SET current_capacity = current_capacity+1 WHERE cid = ?";
+            db.query(q, [req.body.cid], (err, data) => {
+              if (err) return res.status(500).json(err);
+              return res.status(200).json("Enrolled successfully.");
+            })
+          });
         });
       });
     });

@@ -98,3 +98,25 @@ export const courseUpdate = (req, res) => {
     })
   });
 };
+
+export const ClassroomUpdate = (req, res) => {
+  const qq = "SELECT place, Date, TIME_FORMAT(startTime, '%H:%i'),TIME_FORMAT(endTime, '%H:%i) AS startTime,TIME_FORMAT(endTime, '%H:%i')"+ 
+" AS endTime FROM courses WHERE cid =? AND place = ? AND startTime = ? AND endTime =? AND date =?";
+db.query(qq, [req.body.place, req.body.date, req.body.startTime, req.body.endTime, req.body.startTime, req.body.endTime], (err, data) => {
+  if (err) return res.status(500).json(err);
+  if (data.length===0) return res.status(409).json("There is no such course or you entered wrong information");
+});
+
+  const q = "SELECT place, Date, TIME_FORMAT(startTime, '%H:%i'),TIME_FORMAT(endTime, '%H:%i) AS startTime,TIME_FORMAT(endTime, '%H:%i')"+ 
+" AS endTime FROM courses WHERE (place = ? and date = ?) and (startTime BETWEEN ? AND ?) OR (endTime BEWTEEN ? AND ?)";
+  db.query(q, [req.body.place, req.body.date, req.body.startTime, req.body.endTime, req.body.startTime, req.body.endTime], (err, data) => {
+    if (err) return res.status(500).json(err);
+    if (data.length===0) return res.status(409).json("There is no such course");
+
+    const q = "UPDATE courses SET place = ?";
+    db.query(q, [req.body.place], (err, data) => {
+      if (err) return res.status(500).json(err);
+      return res.status(200).json("Course updated successfully.");
+    })
+  });
+};

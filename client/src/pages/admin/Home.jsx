@@ -8,10 +8,6 @@ import LogOut from './image/LogOut.png';
 import { useNavigate } from "react-router-dom";
 
 const AdminHome = () => {
-    //const images = [
-    //    EnrollmentSetting, ViewEditUser, ViewEditCourse, ChangePassword, BugReport, LogOut
-    //];
-
     const images = [
         EnrollmentSetting, ViewEditUser, ViewEditCourse, ChangePassword, BugReport, LogOut
     ];
@@ -59,6 +55,7 @@ const AdminHome = () => {
                     {images.map((image, index) => (
                     <img
                         key={index}
+                        alt='error loading, try refreshing'
                         src={image}
                         style={{ width: '100%', height: '100%', cursor: 'pointer' }}
                         onClick={() => handleClick(index)}

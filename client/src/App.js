@@ -3,30 +3,36 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import DefaultPage from "./pages/common/DefaultPage";
+import BugReport from "./pages/common/BugReport";
+import ChangePassword from "./pages/common/ChangePassword";
+
 import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
+
 import ContactAdmin from "./pages/ContactAdmin/ContactAdmin";
-import BugReport from "./pages/common/BugReport";
+
 import StudentHome from "./pages/student/Home";
 import CourseBrowsing from "./pages/student/CourseBrowsing";
 import Profile from "./pages/student/Profile";
+
 import TeacherHome from "./pages/teacher/Home";
 import GradeUpload from "./pages/teacher/GradeUpload";
 import CourseUpdate from "./pages/teacher/CourseUpdate";
 import CourseTeaching from "./pages/teacher/CourseTeaching";
 import SpecialAddDrop from "./pages/teacher/SpecialAddDrop";
 import ClassroomBooking from "./pages/teacher/ClassroomBooking";
+
 import AdminHome from "./pages/admin/Home";
 import AdminEnrollmentSetting from "./pages/admin/EnrollmentSetting";
+import AdminEditEnrollmentSetting from "./pages/admin/EditEnrollmentSetting";
 import AdminViewEditCourses from "./pages/admin/ViewEditCourses";
 import AdminAddCourses from "./pages/admin/AddCourse";
 import AdminViewEditUsers from "./pages/admin/ViewEditUsers";
 import AdminDeleteCourse from "./pages/admin/DeleteCourse";
 import AdminDeleteUser from "./pages/admin/DeleteUser";
 import AdminAddUser from "./pages/admin/AddUser";
-import ChangePassword from "./pages/common/ChangePassword";
-import "./style.scss"
 
+import "./style.scss"
 const router = createBrowserRouter([
   {
     path: "/",
@@ -83,6 +89,10 @@ const router = createBrowserRouter([
   {
     path: "/admin/EnrollmentSetting",
     element: <AdminEnrollmentSetting />,
+  },
+  {
+    path: "/admin/EnrollmentSetting/EditEnrollmentSetting",
+    element: <AdminEditEnrollmentSetting />,
   },
   {
     path: "/admin/ViewEditCourses",

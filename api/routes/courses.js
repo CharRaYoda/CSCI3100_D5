@@ -7,7 +7,8 @@ import {
   delCourse,
   getAllCourses,
   getCourseByTime,
-  courseUpdate
+  courseUpdate,
+  ClassroomUpdate
 } from "../controllers/courses.js";
 
 const router = express.Router();
@@ -21,5 +22,6 @@ router.get("/", getAllCourses);
 router.post("/", addCourse);
 router.post("/del", delCourse);
 router.put("/CourseUpdate", courseUpdate);
+router.post("/ClassroomBook", ClassroomUpdate);
 
 export default router;
