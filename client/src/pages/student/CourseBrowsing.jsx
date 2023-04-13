@@ -112,12 +112,12 @@ const CourseBrowsing = () => {
               {/* Right side */}
               <h1>Course Browsing</h1>
 
-              <p style={{marginTop: '15px'}}>Search by course code: </p>
-              <input placeholder="Input Course Code (e.g. CSCI3100)" type="text" onChange={(event) => setIdQuery(event.target.value)}/>
+              <p style={{marginTop: '15px'}}>Search by course code: (e.g. CSCI3100)</p>
+              <input placeholder="Input Course Code" type="text" onChange={(event) => setIdQuery(event.target.value)}/>
               <button onClick={handleSearchById} style={{marginLeft: '8px'}}>Search</button>
 
-              <p style={{marginTop: '15px'}}>Search by course name: </p>
-              <input placeholder="Input Course Name (e.g. Software Engineering)" type="text" onChange={(event) => setNameQuery(event.target.value)}/>
+              <p style={{marginTop: '15px'}}>Search by course name: (e.g. Software Engineering)</p>
+              <input placeholder="Input Course Name" type="text" onChange={(event) => setNameQuery(event.target.value)}/>
               <button onClick={handleSearchByName} style={{marginLeft: '8px'}}>Search</button>
 
               <p style={{marginTop: '15px'}}>Search by department: </p>
