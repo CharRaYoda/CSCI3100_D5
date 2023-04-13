@@ -13,35 +13,35 @@ const AdminHome = () => {
     //];
 
     const images = [
-            ViewEditUser, ViewEditCourse, ChangePassword, BugReport, LogOut
-        ];
+        EnrollmentSetting, ViewEditUser, ViewEditCourse, ChangePassword, BugReport, LogOut
+    ];
 
     const navigate = useNavigate();
 
     const handleClick = (index) => {
         
         switch (index) {
-            //case 0:
-                // navigate to Enrollment Setting page
-            //    navigate('/admin/EnrollmentSetting');
-            //    break;
             case 0:
+                // navigate to Enrollment Setting page
+                navigate('/admin/EnrollmentSetting');
+                break;
+            case 1:
                 // navigate to View/Edit User page
                 navigate('/admin/ViewEditUsers');
                 break;
-            case 1:
+            case 2:
                 // navigate to View/Edit Course page
                 navigate('/admin/ViewEditCourses');
                 break;
-            case 2:
+            case 3:
                 // navigate to Change Password page
                 navigate('/ChangePassword');
                 break;
-            case 3:
+            case 4:
                 // navigate to Bug Report page
                 navigate('/BugReport');
                 break;
-            case 4:
+            case 5:
                 // navigate to Log Out page
                 localStorage.clear();
                 navigate('/login');
@@ -52,7 +52,7 @@ const AdminHome = () => {
     };
 
     return (
-        <div className="studentHome">
+        <div className="adminHome">
             <h1>Admin Home</h1>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridGap: '20px' }}>

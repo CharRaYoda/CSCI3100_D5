@@ -1,14 +1,12 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Search from './image/Search.png'
 import AddUser from './image/AddUser.png'
-import Del from './image/Delete.png'
 import ReturnHome from './image/ReturnHome.png'
 import { Link } from 'react-router-dom';
 
 const DeleteCourse = () => {
     const [inputs, setInputs] = useState({});
-    // TODO
     
     const handleChange = (event) => {
         const name = event.target.name;
@@ -55,7 +53,6 @@ const DeleteCourse = () => {
         <div style={{ marginLeft: '220px' }}>
             {/* Right side */}
             <h1>Delete Courses</h1>
-            {/*<h1>{currentUser.uid}</h1>*/}
 
             <div>
             <a>Delete Course By entering the Course ID</a>

@@ -5,7 +5,7 @@ import Del from './image/Delete.png'
 import { Link } from 'react-router-dom';
 import Search from './image/Search.png'
 
-const AddCourse = () => {
+const AddUser = () => {
     const [inputs, setInputs] = useState({});
     const roles = ["select", "student", "teacher", "admin"];
     
@@ -57,7 +57,6 @@ const AddCourse = () => {
         <div style={{ marginLeft: '220px' }}>
             {/* Right side */}
             <h1>Add Users</h1>
-            {/*<h1>{currentUser.uid}</h1>*/}
 
             <div>
             <a>Add User by entering Course Info</a>
@@ -123,4 +122,4 @@ const AddCourse = () => {
    );
 };
 
-export default AddCourse;
+export default AddUser;

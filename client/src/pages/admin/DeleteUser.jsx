@@ -1,11 +1,11 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Search from './image/Search.png'
 import AddUser from './image/AddUser.png'
 import ReturnHome from './image/ReturnHome.png'
 import { Link } from 'react-router-dom';
 
-const DeleteCourse = () => {
+const DeleteUser = () => {
     const [inputs, setInputs] = useState({});
     
     const handleChange = (event) => {
@@ -53,7 +53,6 @@ const DeleteCourse = () => {
         <div style={{ marginLeft: '220px' }}>
             {/* Right side */}
             <h1>Delete Users</h1>
-            {/*<h1>{currentUser.uid}</h1>*/}
 
             <div>
             <a>Delete User By entering the user ID</a>
@@ -79,4 +78,4 @@ const DeleteCourse = () => {
    );
 };
 
-export default DeleteCourse;
+export default DeleteUser;

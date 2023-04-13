@@ -66,7 +66,34 @@ $lightPurple: #f2f2fc;
         margin-bottom: 20px;
         margin-left: 20px;
       }
-      
+    }
+
+    .teacherHome {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      background-color: $lightPurple;
+
+      h1 {
+        font-size: 50px;
+        color: #4147d5;
+        margin-bottom: 20px;
+        margin-left: 20px;
+      }
+    }
+
+    .adminHome {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      background-color: $lightPurple;
+
+      h1 {
+        font-size: 50px;
+        color: #4147d5;
+        margin-bottom: 20px;
+        margin-left: 20px;
+      }
     }
 
     .CourseBrowsing {
@@ -215,6 +242,26 @@ $lightPurple: #f2f2fc;
     }
 
     .DeleteUser {
+      background-color: $lightPurple;
+      height: 100vh;
+
+      h1:not(.menu) {
+        font-size: 70px;
+        color: #4147d5;
+        margin-bottom: 20px;
+        margin-left: 20px;
+      }
+
+      .err {
+        color: red;
+      }
+
+      .response {
+        color: red;
+      }
+    }
+
+    .EnrollmentSetting {
       background-color: $lightPurple;
       height: 100vh;
 

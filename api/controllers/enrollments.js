@@ -21,30 +21,36 @@ export const GetCgpa = (req, res) => {
 };
 
 export const SelectCourse = (req, res) => {
-  const q = "SELECT * FROM enrollment WHERE uid = ? AND cid = ?";
-
-  db.query(q, [req.body.uid, req.body.cid], (err, data) => {
+  const q = "SELECT * FROM enrollment_period";
+  db.query(q, (err, data) => {
     if (err) return res.status(500).json(err);
-    if (data.length) return res.status(409).json("Already enrolled in this course.");
+    if (data[0].canSelect == 0) return res.status(409).json("The enrollment period is closed.");
 
-    const q = "SELECT current_capacity, capacity FROM courses WHERE cid = ?";
-    db.query(q, [req.body.cid], (err, data) => {
+    const q = "SELECT * FROM enrollment WHERE uid = ? AND cid = ?";
+
+    db.query(q, [req.body.uid, req.body.cid], (err, data) => {
       if (err) return res.status(500).json(err);
-      if (data[0].current_capacity == data[0].capacity) return res.status(409).json("This course is already fulled.");
+      if (data.length) return res.status(409).json("Already enrolled in this course.");
 
-      const q = "INSERT INTO enrollment(`uid`,`cid`) VALUES (?)";
-      const values = [req.body.uid, req.body.cid];
-
-      db.query(q, [values], (err, data) => {
+      const q = "SELECT current_capacity, capacity FROM courses WHERE cid = ?";
+      db.query(q, [req.body.cid], (err, data) => {
         if (err) return res.status(500).json(err);
-        const q = "UPDATE courses SET current_capacity = current_capacity+1 WHERE cid = ?";
-        db.query(q, [req.body.cid], (err, data) => {
+        if (data[0].current_capacity == data[0].capacity) return res.status(409).json("This course is already fulled.");
+
+        const q = "INSERT INTO enrollment(`uid`,`cid`) VALUES (?)";
+        const values = [req.body.uid, req.body.cid];
+
+        db.query(q, [values], (err, data) => {
           if (err) return res.status(500).json(err);
-          return res.status(200).json("Enrolled successfully.");
-        })
+          const q = "UPDATE courses SET current_capacity = current_capacity+1 WHERE cid = ?";
+          db.query(q, [req.body.cid], (err, data) => {
+            if (err) return res.status(500).json(err);
+            return res.status(200).json("Enrolled successfully.");
+          })
+        });
       });
     });
-  });
+  })
 };
 
 export const DropEnrollment = (req, res) => {
@@ -91,6 +97,22 @@ export const GradeUpload = (req, res) => {
       if (err) return res.status(500).json(err);
       return res.status(200).json("Grade uploaded successfully.");
     });
+  });
+};
+
+export const SetPeriod = (req, res) => {
+  if (req.body.period === "Select") return res.status(409).json("Please select an option.");
+
+  let q = "";
+  if (req.body.period === "Open"){
+    q = "UPDATE enrollment_period SET canSelect = 1";
+  } else {
+    q = "UPDATE enrollment_period SET canSelect = 0";
+  }
+
+  db.query(q, (err, data) => {
+    if (err) return res.status(500).json(err);
+    return res.status(200).json("Set enrollment period successfully.");
   });
 };
 

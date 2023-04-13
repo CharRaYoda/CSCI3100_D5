@@ -40,7 +40,7 @@ const CourseBrowsing = () => {
     }
 
     //search course by department
-    const departments = ["cse", "Math"];
+    const departments = ["CSE", "Math"];
     const [departmentQuery, setDepartmentQuery] = useState(departments[0]);
     const handleSearchByDepartment = async () => {
         try {

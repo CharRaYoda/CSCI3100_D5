@@ -33,9 +33,6 @@ const ViewEditCourses = () => {
         }
     }, [query]);
 
-
-
-
     return (
         <div className='ViewEditCourses'>
         <div className='navBar' style={{ width: '200px', backgroundColor: '#DFE2F3', height: '100vh', position: 'fixed', left: 0 }}>
@@ -74,15 +71,10 @@ const ViewEditCourses = () => {
             onChange={e=> setQuery(e.target.value)}
             style={{ width: '200px' }} />
             
-            
             {<Table data={visbleData} />}
             </div>
 
         </div>
-            
-
-            
-        
    );
 };
 

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AddUser from './image/AddUser.png'
 import Del from './image/Delete.png'
@@ -72,7 +72,6 @@ const ViewEditUsers = () => {
             placeholder='Search/Filter User by User ID' 
             onChange={e=> setQuery(e.target.value)}
             style={{ width: '200px' }} />
-            
             
             {<UserTable data={visbleData} />}
             </div>

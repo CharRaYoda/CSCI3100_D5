@@ -35,7 +35,7 @@ const CourseTeaching = () => {
                         <div>
                         <img src={ReturnHome} alt="Return" style={{ marginRight: '10px' }} />
                         </div>
-                        <Link to="/student/home">Return</Link>
+                        <Link to="/teacher/home">Return</Link>
                     </li>
                 </ul>
             </div>

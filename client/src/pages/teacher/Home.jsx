@@ -62,7 +62,7 @@ const TeacherHome = () => {
     };
 
     return (
-        <div className="studentHome">
+        <div className="teacherHome">
             <h1>Teacher homepage</h1>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridGap: '20px' }}>
