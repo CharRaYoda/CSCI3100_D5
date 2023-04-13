@@ -58,7 +58,7 @@ const DeleteUser = () => {
             <a>Delete User By entering the user ID</a>
             <div>
             <form onSubmit={handleSubmit}>
-                    <label>Enter the User ID:
+                    <label>Enter the User ID(e.g. 1234) :
                     <input 
                         type="text" 
                         name="uid" 

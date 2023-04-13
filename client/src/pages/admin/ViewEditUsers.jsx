@@ -73,9 +73,9 @@ const ViewEditUsers = () => {
             <div>
             <input type='uid' 
             className='ViewClassSearch' 
-            placeholder='Search/Filter User by User ID' 
+            placeholder='Search/Filter User by User ID or User Name' 
             onChange={e=> setQuery(e.target.value)}
-            style={{ width: '200px' }} />
+            style={{ width: '300px' }} />
             
             {<UserTable data={visbleData} />}
             </div>

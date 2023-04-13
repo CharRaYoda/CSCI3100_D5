@@ -48,9 +48,9 @@ const SpecialAddDrop = () => {
             <div style={{ marginLeft: '220px' }}>
                 <h1>Special Add/Drop</h1>
                 <p>Input student ID: </p>
-                <input placeholder="Student ID" type="text" onChange={(event) => setUid(event.target.value)}/>
+                <input placeholder="Student ID (e.g. 1234)" type="text" onChange={(event) => setUid(event.target.value)}/>
                 <p style={{ marginTop: '20px' }}>Input course code: </p>
-                <input placeholder="Course ID" type="text" onChange={(event) => setCid(event.target.value)}/>
+                <input placeholder="Course ID (e.g. CSCI3100)" type="text" onChange={(event) => setCid(event.target.value)}/>
                 <p style={{ marginTop: '20px' }}>Select Action: </p>
                 <select
                     onChange={(event) => setAction(event.target.value)}>

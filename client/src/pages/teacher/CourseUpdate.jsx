@@ -46,7 +46,7 @@ const CourseUpdate = () => {
             <div style={{ marginLeft: '220px' }}>
                 <h1>Course Update</h1>
                 <p>Input Course ID: </p>
-                <input placeholder="Course ID" type="text" onChange={(event) => setCid(event.target.value)}/>
+                <input placeholder="Course ID (e.g. CSCI3100)" type="text" onChange={(event) => setCid(event.target.value)}/>
                 <p style={{ marginTop: '20px' }}>Input Course Desciption: </p>
                 <div>
                     <textarea 

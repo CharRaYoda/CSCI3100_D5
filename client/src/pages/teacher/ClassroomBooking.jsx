@@ -85,7 +85,7 @@ const AddCourse = () => {
                     </div>
                     {/*Inputting the Starting Time , name is setting to name */}
                     <div>
-                    <label>Enter the Starting Time:     
+                    <label>Enter the Starting Time(HHMM):     
                     <input 
                         type="text" 
                         name="StartTime" 
@@ -96,7 +96,7 @@ const AddCourse = () => {
                     </div>
                     {/*Inputting the Ending Time , name is setting to department */}
                     <div>
-                    <label>Enter the Ending Time:       
+                    <label>Enter the Ending Time(HHMM):       
                     <input 
                         type="text" 
                         name="endTime" 

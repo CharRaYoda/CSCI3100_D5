@@ -59,7 +59,7 @@ const AddCourse = () => {
                 <a>Add Course by entering Course Info</a>
                 <div>
                 <form onSubmit={handleSubmit}>
-                        <label>Enter your Course ID:
+                        <label>Enter your Course ID (e.g. CSCI3100):
                         <input 
                             type="text" 
                             name="cid" 
@@ -68,7 +68,7 @@ const AddCourse = () => {
                         />
                         </label>
                         <div>
-                        <label>Enter the Course Starting Term:
+                        <label>Enter the Course Starting Term (e.g. 2020 T1):
                         <input 
                             type="text" 
                             name="Term" 
@@ -78,7 +78,7 @@ const AddCourse = () => {
                         </label>
                         </div>
                         <div>
-                        <label>Enter your Course Name:
+                        <label>Enter your Course Name (e.g. Software Engineering):
                         <input 
                             type="text" 
                             name="name" 
@@ -88,7 +88,7 @@ const AddCourse = () => {
                         </label>
                         </div>
                         <div>
-                        <label>Enter the Department that organize the course:
+                        <label>Enter the Department that organize the course (e.g. ENGG):
                         <input 
                             type="text" 
                             name="department" 
@@ -98,7 +98,7 @@ const AddCourse = () => {
                         </label>
                         </div>
                         <div>
-                        <label>Enter your Course Course Date (Weekdays):
+                        <label>Enter your Course Course Date (Weekdays: MONDAY):
                         <input 
                             type="text" 
                             name="date" 
@@ -128,7 +128,7 @@ const AddCourse = () => {
                         </label>
                         </div>
                         <div>
-                        <label>Enter the Course Instructor Name:
+                        <label>Enter the Course Instructor Name (e.g. Dr. Wilson Wong Wai Ho):
                         <input 
                             type="text" 
                             name="instructor" 
@@ -138,7 +138,7 @@ const AddCourse = () => {
                         </label>
                         </div>
                         <div>
-                        <label>Enter the Course Capacity:
+                        <label>Enter the Course Capacity (e.g. 100):
                         <input 
                             type="text" 
                             name="capacity" 
@@ -148,7 +148,7 @@ const AddCourse = () => {
                         </label>
                         </div>
                         <div>
-                        <label>Enter the Number of Students Enrolled in the Course:
+                        <label>Enter the Number of Students Enrolled in the Course (e.g. 0):
                         <input 
                             type="text" 
                             name="current_capacity" 
@@ -158,7 +158,7 @@ const AddCourse = () => {
                         </label>
                         </div>
                         <div>
-                        <label>Enter the Course description:
+                        <label>Enter the Course description (e.g. This course ....):
                         <input 
                             type="text" 
                             name="description" 
@@ -168,7 +168,7 @@ const AddCourse = () => {
                         </label>
                         </div>
                         <div>
-                        <label>Enter the Course venue:
+                        <label>Enter the Course venue (e.g. LSK LT5):
                         <input 
                             type="text" 
                             name="place" 

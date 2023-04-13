@@ -58,7 +58,7 @@ const DeleteCourse = () => {
             <a>Delete Course By entering the Course ID</a>
             <div>
             <form onSubmit={handleSubmit}>
-                    <label>Enter the Course ID:
+                    <label>Enter the Course ID:(e.g. CSCI3100)
                     <input 
                         type="text" 
                         name="cid" 

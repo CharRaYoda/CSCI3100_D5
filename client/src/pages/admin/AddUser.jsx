@@ -63,7 +63,7 @@ const AddUser = () => {
             <div>
             <form onSubmit={handleSubmit}>
             <div>
-                    <label>Enter User Name:
+                    <label>Enter User Name (Ray Wong):
                     <input 
                         type="text" 
                         name="username" 
@@ -72,7 +72,7 @@ const AddUser = () => {
                     />
                     </label>
                     </div>
-                    <label>Enter the User ID:
+                    <label>Enter the User ID (e.g. 1234) (Numeric):
                     <input 
                         type="text" 
                         name="uid" 
@@ -81,7 +81,7 @@ const AddUser = () => {
                     />
                     </label>
                     <div>
-                    <label>Enter the Temporary User Password:
+                    <label>Enter the Temporary User Password (e.g.123456):
                     <input 
                         type="text" 
                         name="password" 
@@ -91,7 +91,7 @@ const AddUser = () => {
                     </label>
                     </div>
                     <div>
-                    <label>Enter User email:
+                    <label>Enter User email (e.g. abc@gmail.com):
                     <input 
                         type="text" 
                         name="email" 
