@@ -15,8 +15,9 @@ const AddCourse = () => {
     
     const handleSubmit = async(event) => {
         event.preventDefault();
-        let answer = window.confirm("Confirm to add the course : "+ inputs.name + " ?")
+        let answer = window.confirm("Confirm to request classwork change for the course: "+ inputs.cid + " ?")
         if (answer){
+            console.log("test -1")
             const resp = await axios.post('/courses/ClassroomBook',inputs);
         }
     }
