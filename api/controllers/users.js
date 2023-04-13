@@ -6,8 +6,8 @@ export const addUser = (req, res) => {
     if (err) return res.status(500).json(err);
     if (data.length>0) return res.status(409).json("User already exist");
 
-    const q = "INSERT INTO users(`uid`,`password`,`email`,`role`,`gpa`) VALUES (?)";
-    const values = [req.body.uid, req.body.password, req.body.email, req.body.role, req.body.gpa];
+    const q = "INSERT INTO users(`uid`,`password`,`email`,`role`,`name`) VALUES (?)";
+    const values = [req.body.uid, req.body.password, req.body.email, req.body.role, req.body.username];
     db.query(q, [values], (err, data) => {
       if (err) return res.status(500).json(err);
       return res.status(200).json("User added successfully.");
