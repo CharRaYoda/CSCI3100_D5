@@ -10,6 +10,8 @@ const Profile = () => {
     const { currentUser } = useContext(AuthContext);
     const [results, setResults] = useState([]);
     const [cgpa, setCgpa] = useState();
+    const [err, setError] = useState(null);
+    const [selectedIndex, setSelectedIndex] = useState(null);
     const grades = ["A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "F"];
 
     //fetch selected courses when rendering in the beginning
@@ -24,13 +26,14 @@ const Profile = () => {
     },[]);
 
 
-    const handleDrop = async (cid) => {
+    const handleDrop = async (cid, index) => {
         try {
+          setSelectedIndex(index);
           await axios.post("/enrollments/drop", {uid: currentUser.uid, cid: cid});
           const response = await axios.get(`/enrollments/${currentUser.uid}`);
           setResults(response.data);
         } catch (err) {
-          console.error(err);
+          setError(err.response.data);
         }
     }
 
@@ -79,7 +82,7 @@ const Profile = () => {
                   </tr>
                   </thead>
                   <tbody>
-                  {results.map((result) => (
+                  {results.map((result, index) => (
                       <tr key={result.cid}>
                       <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.Term}</td>
                       <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.cid}</td>
@@ -93,9 +96,14 @@ const Profile = () => {
                       <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.description}</td>
                       <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.grade}</td>
                       {!grades.includes(result.grade) && (
-                        <td><button onClick={() => handleDrop(result.cid)}>Drop</button></td>
+                        <td><button onClick={() => handleDrop(result.cid, index)}>Drop</button></td>
                       )}
-                      {/* show response or err if button is clicked*/}
+                      
+                      {selectedIndex === index && (
+                        <>
+                          <td>{err && <p className="err">{err}</p>}</td>
+                        </>
+                      )}
                       </tr>
                   ))}
                   </tbody>
