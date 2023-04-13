@@ -2,7 +2,7 @@
 
 CSCI3100 Group Project (Course Selection System)
 
-Ben: login, register, course browsing, profile, grade upload
+Ben: login, register, course browsing, profile, grade upload, course update, course teaching, special add drop
 
 RayLi: contact admin(done), BugReport(done), campus map(done), default system page(done), changePassword(in branch), forgetPassword(in branch), CourseTeaching(in branch), enrollment setting(in branch, lack home navi, [schema setting: "UPDATE enrollmentsetting SET permission = ?"] {Allow/Disallow})
 
