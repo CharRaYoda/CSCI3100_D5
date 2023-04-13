@@ -25,7 +25,7 @@ const ViewEditCourses = () => {
 
     useEffect(() => {
         const filterData = async() => {
-            setVisbleData(data.filter((item)=>JSON.stringify(item.cid).includes(query)||item.name.includes(query)||item.email.includes(query)||item.role.includes(query)||item.gpa.includes(query)))
+            setVisbleData(data.filter((item)=>JSON.stringify(item.cid).includes(query.toLowerCase())||(item.name.toLowerCase()).includes(query)))
         }; if (query.length > 0){
             filterData();
         }else {
@@ -67,9 +67,9 @@ const ViewEditCourses = () => {
             
             <input type='cid' 
             className='ViewClassSearch' 
-            placeholder='Search Course by courseID' 
+            placeholder='Search Course by Course ID or Course Name' 
             onChange={e=> setQuery(e.target.value)}
-            style={{ width: '200px' }} />
+            style={{ width: '300px' }} />
             
             {<Table data={visbleData} />}
             </div>

@@ -11,6 +11,10 @@ const ViewEditUsers = () => {
     const [query, setQuery] = useState("");
     const [data, setData] = useState([]);
     const [visbleData, setVisbleData] = useState([]);
+    const capitalizeFirst = str => {
+        return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+      };
+
 
     const fetchCourses = async() => {
         const resp = await axios.get('/users');
@@ -25,8 +29,8 @@ const ViewEditUsers = () => {
 
     useEffect(() => {
         const filterData = async() => {
-            setVisbleData(data.filter((item)=>JSON.stringify(item.uid).includes(query)||item.name.includes(query)||item.date.includes(query)||item.department.includes(query)))
-        }; if (query.length > 0){
+            setVisbleData(data.filter((item)=>JSON.stringify(item.uid).includes(query)||(item.name.toLowerCase()).includes(query.toLocaleLowerCase())))};
+             if (query.length > 0){
             filterData();
         }else {
             fetchCourses()
