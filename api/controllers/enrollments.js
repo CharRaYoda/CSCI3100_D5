@@ -21,6 +21,11 @@ export const GetCgpa = (req, res) => {
 };
 
 export const SelectCourse = (req, res) => {
+  const qq = "SELECT sum(*) FROM enrollment WHERE uid = ? AND grade IS NULL";
+  db.query(qq, [req.body.uid],(err,data)=>{
+    if (err) return res.status(500).json(err);
+    if (data.length>6) return res.status(409).json("You cannot exceed the course taking limit.");
+  });
   const q = "SELECT * FROM enrollment WHERE uid = ? AND cid = ?";
 
   db.query(q, [req.body.uid, req.body.cid], (err, data) => {
