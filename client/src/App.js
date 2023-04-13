@@ -24,7 +24,6 @@ import ClassroomBooking from "./pages/teacher/ClassroomBooking";
 
 import AdminHome from "./pages/admin/Home";
 import AdminEnrollmentSetting from "./pages/admin/EnrollmentSetting";
-import AdminEditEnrollmentSetting from "./pages/admin/EditEnrollmentSetting";
 import AdminViewEditCourses from "./pages/admin/ViewEditCourses";
 import AdminAddCourses from "./pages/admin/AddCourse";
 import AdminViewEditUsers from "./pages/admin/ViewEditUsers";
@@ -89,10 +88,6 @@ const router = createBrowserRouter([
   {
     path: "/admin/EnrollmentSetting",
     element: <AdminEnrollmentSetting />,
-  },
-  {
-    path: "/admin/EnrollmentSetting/EditEnrollmentSetting",
-    element: <AdminEditEnrollmentSetting />,
   },
   {
     path: "/admin/ViewEditCourses",
