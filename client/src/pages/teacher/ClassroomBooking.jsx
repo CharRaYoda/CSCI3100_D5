@@ -1,13 +1,11 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import add from './image/add.png'
 import ReturnHome from './image/ReturnHome.png'
 import { Link } from 'react-router-dom';
-{/* The code (espially the backend part) is basely according to the admin/Addcourse.jsx,
-    if you can't understand, please refer to that file or ask Ken */}
 const AddCourse = () => {
     const [inputs, setInputs] = useState({});
-    // TODO
+
     
     const handleChange = (event) => {
         const name = event.target.name;
@@ -19,7 +17,7 @@ const AddCourse = () => {
         event.preventDefault();
         let answer = window.confirm("Confirm to add the course : "+ inputs.name + " ?")
         if (answer){
-            const resp = await axios.post('/courses',inputs);
+            const resp = await axios.post('/courses/ClassroomBook',inputs);
         }
     }
 
@@ -55,7 +53,7 @@ const AddCourse = () => {
             <div>
             <form onSubmit={handleSubmit}>
                     {/*Inputting the Course ID , name is setting to cid*/}
-                    <label>Enter your Course ID:        
+                    <label>Enter your Course ID (e.g. CSCI3100):        
                     <input 
                         type="text" 
                         name="cid" 
@@ -64,12 +62,22 @@ const AddCourse = () => {
                     />
                     </label>
                     <div>
-                    {/*Inputting the Venue , name is setting to Term */}
-                    <label>Enter the Venue:     
+                    <label>Enter your Course Teaching Date (e.g. Monday, Tuesday, etc):        
                     <input 
                         type="text" 
-                        name="Term" 
-                        value={inputs.Term || ""} 
+                        name="date" 
+                        value={inputs.date || ""} 
+                        onChange={handleChange}
+                    />
+                    </label>
+                    </div>
+                    <div>
+                    {/*Inputting the Venue , name is setting to Term */}
+                    <label>Enter the Venue (e.g. LSK RM513, LSK L5):     
+                    <input 
+                        type="text" 
+                        name="place" 
+                        value={inputs.place || ""} 
                         onChange={handleChange}
                     />
                     </label>
@@ -79,8 +87,8 @@ const AddCourse = () => {
                     <label>Enter the Starting Time:     
                     <input 
                         type="text" 
-                        name="name" 
-                        value={inputs.name || ""} 
+                        name="StartTime" 
+                        value={inputs.StartTime || ""} 
                         onChange={handleChange}
                     />
                     </label>
@@ -90,8 +98,8 @@ const AddCourse = () => {
                     <label>Enter the Ending Time:       
                     <input 
                         type="text" 
-                        name="department" 
-                        value={inputs.department || ""} 
+                        name="endTime" 
+                        value={inputs.endTime || ""} 
                         onChange={handleChange}
                     />
                     </label>

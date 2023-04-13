@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 
 const DeleteCourse = () => {
     const [inputs, setInputs] = useState({});
-    // TODO
     
     const handleChange = (event) => {
         const name = event.target.name;
