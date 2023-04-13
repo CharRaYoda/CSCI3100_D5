@@ -9,3 +9,5 @@ RayLi: contact admin(done), BugReport(done), campus map(done), default system pa
 Ray Wong: Admin (done), enrollment status (on hold)
 
 Ken : admin home, student home, teacher home, front end of teacher Special AddDrop, Course Update and Classroom Booking 
+
+William : enrollment period function
