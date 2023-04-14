@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 const AddCourse = () => {
     const [inputs, setInputs] = useState({});
+    const [response, setResponse] = useState(null);
     const [err, setError] = useState(null);
     
     const handleChange = (event) => {
@@ -18,9 +19,17 @@ const AddCourse = () => {
     const handleSubmit = async(event) => {
         event.preventDefault();
         let answer = window.confirm("Confirm to add the course : "+ inputs.name + " ?")
-        if (answer){
-            const resp = await axios.post('/courses',inputs);
-        }
+        
+        try {
+            if (answer){
+              const resp = await axios.post('/courses',inputs);
+              setResponse(resp.data);
+              setError(null);
+            }
+          } catch (err) {
+            setError(err.response.data);
+            setResponse(null);
+          }
     }
 
     return (
@@ -178,7 +187,9 @@ const AddCourse = () => {
                         </label>
                         </div>
                     <input type="submit" />
-                </form>
+                    {response && <p className="response">{response}</p>}
+                    {err && <p className="err">{err}</p>}
+                </form> 
                 </div>
                 </div>
             </div>

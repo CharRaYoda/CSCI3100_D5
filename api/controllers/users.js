@@ -1,6 +1,7 @@
 import { db } from "../db.js";
 
 export const addUser = (req, res) => {
+    if (req.body.role === "select") return res.status(409).json("Please select a role");
     const q = "SELECT * FROM users WHERE uid = ?";
     db.query(q, [req.body.uid], (err, data) => {
     if (err) return res.status(500).json(err);

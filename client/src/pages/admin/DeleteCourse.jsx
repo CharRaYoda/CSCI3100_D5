@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 
 const DeleteCourse = () => {
     const [inputs, setInputs] = useState({});
+    const [response, setResponse] = useState(null);
+    const [err, setError] = useState(null);
     
     const handleChange = (event) => {
         const name = event.target.name;
@@ -17,9 +19,17 @@ const DeleteCourse = () => {
     const handleSubmit = async(event) => {
         event.preventDefault();
         let answer = window.confirm("Confirm for deleting the Course :"+ inputs.cid)
-        if (answer){
-            const resp = await axios.post('/courses/del',inputs);
-        }
+
+        try {
+            if (answer){
+              const resp = await axios.post('/courses/del',inputs);
+              setResponse(resp.data);
+              setError(null);
+            }
+          } catch (err) {
+            setError(err.response.data);
+            setResponse(null);
+          }
     }
 
     return (
@@ -67,12 +77,11 @@ const DeleteCourse = () => {
                     />
                     </label>
                 <input type="submit" />
+                {response && <p className="response">{response}</p>}
+                {err && <p className="err">{err}</p>}
             </form>
-            
-            
             </div>
             </div>
-
         </div>
         </div>
    );

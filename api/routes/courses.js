@@ -8,7 +8,8 @@ import {
   getAllCourses,
   getCourseByTime,
   courseUpdate,
-  ClassroomUpdate
+  ClassroomUpdate,
+  getCourseTeaching
 } from "../controllers/courses.js";
 
 const router = express.Router();
@@ -16,6 +17,7 @@ const router = express.Router();
 router.get("/id/:courseId", getCourseByID);
 router.get("/name/:courseName", getCourseByName);
 router.get("/department/:courseDepartment", getCourseByDepartment);
+router.get("/teach/:instructor", getCourseTeaching);
 router.post("/time", getCourseByTime);
 router.get("/:courseId", getCourseByID);
 router.get("/", getAllCourses);

@@ -13,7 +13,7 @@ const CourseTeaching = () => {
     //fetch teaching courses when rendering in the beginning
     useEffect(() => {
         async function fetchData() {
-            const response = await axios.get(`/teach/${currentUser.uid}`);
+            const response = await axios.get(`/courses/teach/${currentUser.name}`);
             setResults(response.data);
         }
         fetchData();

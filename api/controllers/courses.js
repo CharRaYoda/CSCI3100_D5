@@ -77,6 +77,16 @@ export const getCourseByTime = (req, res) => {
   });
 };
 
+export const getCourseTeaching = (req, res) => {
+  const q = "SELECT cid,name,TIME_FORMAT(startTime, '%H:%i') AS startTime,TIME_FORMAT(endTime, '%H:%i')"+ 
+  " AS endTime,place,department,instructor,capacity,current_capacity,Term,date,description FROM courses WHERE instructor = ?";
+
+  db.query(q, [req.params.instructor], (err, data) => {
+    if (err) return res.status(500).json(err);
+    return res.status(200).json(data);//array of objects
+  });
+};
+
 export const getAllCourses = (req, res) => {
   const q = "SELECT * FROM courses";
   db.query(q, (err, data) => {
