@@ -3,6 +3,7 @@ import React, {useState } from 'react';
 import add from './image/add.png'
 import ReturnHome from './image/ReturnHome.png'
 import { Link } from 'react-router-dom';
+import Search from './image/Search.png'
 const AddCourse = () => {
     const [inputs, setInputs] = useState({});
 
@@ -27,6 +28,12 @@ const AddCourse = () => {
         <div className='navBar' style={{ width: '200px', backgroundColor: '#DFE2F3', height: '100vh', position: 'fixed', left: 0 }}>
             <h1 className='menu' style={{ display: 'flex', justifyContent: 'center' }}>Menu</h1>
             <ul style={{ listStyleType: 'none', padding: 0 }}>
+            <li style={{ padding: '10px', display: 'flex', alignItems: 'center' }}>
+                    <div>
+                    {<img src={Search} alt="Search" style={{ marginRight: '10px' }} />}
+                    </div>
+                    <Link to="/teacher/ClassroomBooking/show">Search Courses</Link>
+                </li>
             {/* Return to Classroom booking */}
             <li style={{ padding: '10px', display: 'flex', alignItems: 'center' }}>
                     <div>

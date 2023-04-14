@@ -70,12 +70,14 @@ const CourseBrowsing = () => {
     //select course
     const handleSelect = async (cid, index) => {
         try {
+          console.log(-1)
           const response = await axios.post("/enrollments/SelectCourse", {uid: currentUser.uid, cid: cid});
           setSelectedIndex(index);
           setResponse(response.data);
           setError(null);
           
           //update current capacity on the page
+          console.log(-2)
           const response2 = await axios.get(`/courses/id/${cid}`);
           const newResults = [...results];
           newResults[index].current_capacity = response2.data[0].current_capacity;
@@ -85,6 +87,7 @@ const CourseBrowsing = () => {
           setError(err.response.data);
           setResponse(null);
         }
+        console.log(-3)
     }
 
     return (

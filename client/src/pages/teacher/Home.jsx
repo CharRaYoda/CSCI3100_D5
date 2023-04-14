@@ -63,7 +63,7 @@ const TeacherHome = () => {
 
     return (
         <div className="teacherHome">
-            <h1>Teacher homepage</h1>
+            <h1>Teacher Homepage</h1>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridGap: '20px' }}>
                     {images.map((image, index) => (
