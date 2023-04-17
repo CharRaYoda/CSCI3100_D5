@@ -11,10 +11,3 @@ README on your GitHub repository describing your application and the requirement
 CSCI3100 Software Engineering, Dept. of CSE, The Chinese University of Hong Kong
 your application. The code will be graded based upon the availability of the README and the
 readability of your code.
-Although generally, the project grade is for the whole team and will not be assigned individually to
-the members, each team member must be aware that a major part of his or her final project grade
-depends on teamwork. Failures to cooperate with other team members and to invest an equitable
-amount of effort can lead to undesirable outcomes, particularly when other team members raise
-complaints about the non-participating members. On the project Demo Day, if there is any complaint
-about free-rider(s), please raise the case right after your project demo is done. We will verify with
-all your team members regarding the validity of the complaint.
