@@ -8,6 +8,5 @@ The document should be written in text font Times New Roman and size 11. The mai
 be no more than 15 pages. Please refer to Appendix 4 for more detail. The final commented code
 should be handed in by pushing the code to your GitHub repository. You should include a detailed
 README on your GitHub repository describing your application and the requirements of running
-CSCI3100 Software Engineering, Dept. of CSE, The Chinese University of Hong Kong
 your application. The code will be graded based upon the availability of the README and the
 readability of your code.
