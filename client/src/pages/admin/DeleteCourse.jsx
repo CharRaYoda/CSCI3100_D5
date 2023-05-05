@@ -1,3 +1,6 @@
+//Delete Course Page
+
+//imports
 import axios from 'axios';
 import React, { useState } from 'react';
 import Search from './image/Search.png'
@@ -5,6 +8,8 @@ import AddUser from './image/AddUser.png'
 import ReturnHome from './image/ReturnHome.png'
 import { Link } from 'react-router-dom';
 
+
+//const var
 const DeleteCourse = () => {
     const [inputs, setInputs] = useState({});
     const [response, setResponse] = useState(null);
@@ -16,6 +21,7 @@ const DeleteCourse = () => {
         setInputs(values => ({...values, [name]: value}))
     }
     
+    {/* Confirm window upon form submission */}
     const handleSubmit = async(event) => {
         event.preventDefault();
         let answer = window.confirm("Confirm for deleting the Course :"+ inputs.cid)
@@ -35,6 +41,7 @@ const DeleteCourse = () => {
     return (
         <div className='DeleteCourse'>
         <div className='navBar' style={{ width: '200px', backgroundColor: '#DFE2F3', height: '100vh', position: 'fixed', left: 0 }}>
+            {/* Left side bar*/}
             <h1 className='menu' style={{ display: 'flex', justifyContent: 'center' }}>Menu</h1>
             <ul style={{ listStyleType: 'none', padding: 0 }}>
             <li style={{ padding: '10px', display: 'flex', alignItems: 'center' }}>
@@ -67,6 +74,7 @@ const DeleteCourse = () => {
             <div>
             <a>Delete Course By entering the Course ID</a>
             <div>
+                {/* Delete Course Form */}
             <form onSubmit={handleSubmit}>
                     <label>Enter the Course ID:(e.g. CSCI3100)
                     <input 

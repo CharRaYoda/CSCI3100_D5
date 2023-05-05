@@ -1,3 +1,6 @@
+//Delete User Page
+
+//imports
 import axios from 'axios';
 import React, { useState } from 'react';
 import Search from './image/Search.png'
@@ -5,6 +8,7 @@ import AddUser from './image/AddUser.png'
 import ReturnHome from './image/ReturnHome.png'
 import { Link } from 'react-router-dom';
 
+//const var
 const DeleteUser = () => {
     const [inputs, setInputs] = useState({});
     const [response, setResponse] = useState(null);
@@ -16,6 +20,7 @@ const DeleteUser = () => {
         setInputs(values => ({...values, [name]: value}))
     }
     
+    {/* Confirm window upon form submission */}
     const handleSubmit = async(event) => {
         event.preventDefault();
         let answer = window.confirm("Confirm for deleting the User :"+ inputs.uid)
@@ -35,6 +40,7 @@ const DeleteUser = () => {
     return (
         <div className='DeleteUser'>
         <div className='navBar' style={{ width: '200px', backgroundColor: '#DFE2F3', height: '100vh', position: 'fixed', left: 0 }}>
+            {/* Left Side Bar */}
             <h1 className='menu' style={{ display: 'flex', justifyContent: 'center' }}>Menu</h1>
             <ul style={{ listStyleType: 'none', padding: 0 }}>
             <li style={{ padding: '10px', display: 'flex', alignItems: 'center' }}>
@@ -67,6 +73,7 @@ const DeleteUser = () => {
             <div>
             <a>Delete User By entering the user ID</a>
             <div>
+                {/* Delete User Form */}
             <form onSubmit={handleSubmit}>
                     <label>Enter the User ID(e.g. 1234) :
                     <input 

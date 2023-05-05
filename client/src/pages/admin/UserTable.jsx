@@ -2,6 +2,7 @@ const UserTable = ({data}) => {
     return(
         <table>
             <thead>
+                {/* Column Names for Users*/}
             <tr>
                 <th style={{padding: '8px'}}>uid</th>
                 <th style={{padding: '8px'}}>name</th>
@@ -9,6 +10,7 @@ const UserTable = ({data}) => {
                 <th style={{padding: '8px'}}>role</th>
             </tr>
             </thead>
+            {/* Map over the data array to generate table rows */}
             <tbody>
             {data.map((item) => (
                 <tr key={item.cid}>

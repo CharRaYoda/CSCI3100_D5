@@ -1,8 +1,11 @@
+// Enrollment Setting Page
+
+// Imports
 import React, { useState } from 'react';
 import axios from 'axios';
-import ReturnHome from './image/ReturnHome.png'
+import ReturnHome from './image/ReturnHome.png';
 import { Link } from 'react-router-dom';
-import Search from './image/Search.png'
+import Search from './image/Search.png';
 
 const EnrollmentSetting = () => {
     const periods = ["Select", "Open", "Close"];
@@ -10,6 +13,7 @@ const EnrollmentSetting = () => {
     const [response, setResponse] = useState(null);
     const [err, setError] = useState(null);
 
+    // Handles form submission
     const handleSubmit = async () => {
         try {
           const response = await axios.put("/enrollments/period", {period: period});
@@ -23,9 +27,11 @@ const EnrollmentSetting = () => {
 
     return (
         <div className='EnrollmentSetting'>
+            {/* Left side navigation menu */}
             <div className='navBar' style={{ width: '200px', backgroundColor: '#DFE2F3', height: '100vh', position: 'fixed', left: 0 }}>
               <h1 className='menu' style={{ display: 'flex', justifyContent: 'center' }}>Menu</h1>
               <ul style={{ listStyleType: 'none', padding: 0 }}>
+                  {/* Enrollment Setting link */}
                   <li style={{ padding: '10px', display: 'flex', alignItems: 'center' }}>
                       <div>
                       <img src={Search} alt="Search" style={{ marginRight: '10px' }} />
@@ -33,6 +39,7 @@ const EnrollmentSetting = () => {
                       <Link>Enrollment Setting</Link>
                   </li>
 
+                  {/* Return Home link */}
                   <li style={{ padding: '10px', display: 'flex', alignItems: 'center' }}>
                       <div>
                       <img src={ReturnHome} alt="Return" style={{ marginRight: '10px' }} />
@@ -43,10 +50,11 @@ const EnrollmentSetting = () => {
           </div>
 
           <div style={{ marginLeft: '220px' }}>
-              {/* Right side */}
+              {/* Right side content */}
               <h1>Enrollment Setting</h1>
 
               <p style={{marginTop: '15px'}}>Open/Close enrollment period: </p>
+              {/* Enrollment period select */}
               <select
                 onChange={(event) => setPeriod(event.target.value)}>
                   {periods.map((period) => (
@@ -55,8 +63,11 @@ const EnrollmentSetting = () => {
                     </option>
                   ))}
               </select>
+              {/* Confirm button */}
               <button onClick={handleSubmit} style={{marginLeft: '8px'}}>Confirm</button>
+              {/* Display success response */}
               {response && <p className="response">{response}</p>}
+              {/* Display error message */}
               {err && <p className="err">{err}</p>}
           </div>
         </div>

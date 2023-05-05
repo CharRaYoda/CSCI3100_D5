@@ -1,8 +1,10 @@
 import { db } from "../db.js";
 
+// Register a new user
 export const register = (req, res) => {
   if (req.body.role === "select") return res.status(409).json("Please select your role.");
-  //Check existing user
+  
+  // Check if the user already exists
   const q = "SELECT * FROM users WHERE uid = ?";
   db.query(q, [req.body.uid], (err, data) => {
     if (err) return res.status(500).json(err);
@@ -18,6 +20,7 @@ export const register = (req, res) => {
   });
 };
 
+// User login
 export const login = (req, res) => {
   if (req.body.role === "select") return res.status(409).json("Please select your role.");
 
@@ -27,13 +30,13 @@ export const login = (req, res) => {
     if (err) return res.status(500).json(err);
     if (data.length === 0) return res.status(404).json("User not found.");
 
-    //Check password
+    // Check if the entered password matches the stored password
     const isPasswordCorrect = req.body.password == data[0].password ? true : false;
     if (!isPasswordCorrect)
       return res.status(400).json("Wrong username or password.");
 
-    //Check role
-    if (req.body.role !== data[0].role){
+    // Check if the entered role matches the stored role
+    if (req.body.role !== data[0].role) {
       return res.status(400).json("The role does not match.");
     }
 
@@ -41,9 +44,10 @@ export const login = (req, res) => {
   });
 };
 
+// User logout
 export const logout = (req, res) => {
   res.clearCookie("access_token",{
     sameSite:"none",
     secure:true
-  }).status(200).json("User has been logged out.")
+  }).status(200).json("User has been logged out.");
 };

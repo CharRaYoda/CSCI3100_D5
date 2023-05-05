@@ -1,3 +1,6 @@
+//Admin Home Page
+
+//imports
 import React from 'react';
 import EnrollmentSetting from './image/EnrollmentSetting.png';
 import ChangePassword from './image/ChangePassword.png';
@@ -7,6 +10,7 @@ import BugReport from './image/BugReport.png';
 import LogOut from './image/LogOut.png';
 import { useNavigate } from "react-router-dom";
 
+
 const AdminHome = () => {
     const images = [
         EnrollmentSetting, ViewEditUser, ViewEditCourse, ChangePassword, BugReport, LogOut
@@ -14,31 +18,32 @@ const AdminHome = () => {
 
     const navigate = useNavigate();
 
+    // Handles the click event on each image
     const handleClick = (index) => {
         
         switch (index) {
             case 0:
-                // navigate to Enrollment Setting page
+                // Navigate to Enrollment Setting page
                 navigate('/admin/EnrollmentSetting');
                 break;
             case 1:
-                // navigate to View/Edit User page
+                // Navigate to View/Edit User page
                 navigate('/admin/ViewEditUsers');
                 break;
             case 2:
-                // navigate to View/Edit Course page
+                // Navigate to View/Edit Course page
                 navigate('/admin/ViewEditCourses');
                 break;
             case 3:
-                // navigate to Change Password page
+                // Navigate to Change Password page
                 navigate('/ChangePassword');
                 break;
             case 4:
-                // navigate to Bug Report page
+                // Navigate to Bug Report page
                 navigate('/BugReport');
                 break;
             case 5:
-                // navigate to Log Out page
+                // Navigate to Log Out page and clear localStorage
                 localStorage.clear();
                 navigate('/login');
                 break;

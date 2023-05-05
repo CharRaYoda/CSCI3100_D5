@@ -1,3 +1,6 @@
+//Add User Page
+
+//imports
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import ReturnHome from './image/ReturnHome.png'
@@ -5,6 +8,7 @@ import Del from './image/Delete.png'
 import { Link } from 'react-router-dom';
 import Search from './image/Search.png'
 
+//const var
 const AddUser = () => {
     const [inputs, setInputs] = useState({});
     const roles = ["select", "student", "teacher", "admin"];
@@ -16,7 +20,8 @@ const AddUser = () => {
         const value = event.target.value;
         setInputs(values => ({...values, [name]: value}))
     }
-    
+
+    {/* Confirm window upon form submission */}
     const handleSubmit = async(event) => {
         event.preventDefault();
         let answer = window.confirm("Confirm to add the user : "+ inputs.uid + " ?")
@@ -36,6 +41,7 @@ const AddUser = () => {
     return (
         <div className='AddUser'>
         <div className='navBar' style={{ width: '200px', backgroundColor: '#DFE2F3', height: '100vh', position: 'fixed', left: 0 }}>
+            {/* Side Bar */}
             <h1 className='menu' style={{ display: 'flex', justifyContent: 'center' }}>Menu</h1>
             <ul style={{ listStyleType: 'none', padding: 0 }}>
                 <li style={{ padding: '10px', display: 'flex', alignItems: 'center' }}>
@@ -71,6 +77,7 @@ const AddUser = () => {
             <div>
             <a>Add User by entering Course Info</a>
             <div>
+                {/* Add User Form */}
             <form onSubmit={handleSubmit}>
             <div>
                     <label>Enter User Name (Ray Wong):
