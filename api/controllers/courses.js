@@ -139,7 +139,7 @@ export const courseUpdate = (req, res) => {
 };
 
 // Update a course's classroom
-export const classroomUpdate = (req, res) => {
+export const ClassroomUpdate = (req, res) => {
   const qq = "SELECT * FROM courses WHERE (startTime BETWEEN ? AND ?)";
   
   // Check if there are any conflicting courses in the given time range
