@@ -1,3 +1,5 @@
+//Classroom show page
+
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
@@ -7,11 +9,12 @@ import Table from "./Table";
 import add from './image/add.png'
 
 const ViewEditCourses = () => {
-    
+    //data and query
     const [query, setQuery] = useState("");
     const [data, setData] = useState([]);
     const [visbleData, setVisbleData] = useState([]);
 
+    //fetch courses from database
     const fetchCourses = async() => {
         const resp = await axios.get('/courses');
         setData(resp.data);
@@ -23,6 +26,7 @@ const ViewEditCourses = () => {
         fetchCourses();
     }, []);
 
+    //filter function for course list
     useEffect(() => {
         const filterData = async() => {
             setVisbleData(data.filter((item)=>JSON.stringify(item.place.toLowerCase()).includes(query.toLowerCase())))

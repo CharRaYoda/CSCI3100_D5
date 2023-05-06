@@ -144,7 +144,6 @@ export const ClassroomUpdate = (req, res) => {
   
   // Check if there are any conflicting courses in the given time range
   db.query(qq, [req.body.startTime, req.body.endTime], (err, data) => {
-    console.log(err);
     if (err) return res.status(500).json(err);
     if (data.length != 0) return res.status(409).json("There is no such course or you entered wrong information");
     const qqu = "UPDATE courses SET place = ? WHERE cid = ?";

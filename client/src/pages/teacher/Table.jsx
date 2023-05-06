@@ -1,3 +1,5 @@
+//Course list table
+
 const Table = ({data}) => {
     return(
         <table>

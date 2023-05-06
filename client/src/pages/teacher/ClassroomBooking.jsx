@@ -1,24 +1,27 @@
+//Classroom booking page
+
 import axios from 'axios';
 import React, {useState } from 'react';
 import add from './image/add.png'
 import ReturnHome from './image/ReturnHome.png'
 import { Link } from 'react-router-dom';
 import Search from './image/Search.png'
+
 const AddCourse = () => {
     const [inputs, setInputs] = useState({});
-
     
+    //input change handle function
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
         setInputs(values => ({...values, [name]: value}))
     }
     
+    //submit handle function
     const handleSubmit = async(event) => {
         event.preventDefault();
         let answer = window.confirm("Confirm to request classwork change for the course: "+ inputs.cid + " ?")
         if (answer){
-            console.log("test -1")
             const resp = await axios.post('/courses/ClassroomBook',inputs);
         }
     }

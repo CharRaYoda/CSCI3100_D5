@@ -1,10 +1,13 @@
+//Register page
+
+//imports
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Register = () => {
+  //state for roles
   const roles = ["select", "student", "teacher", "admin"];
-  //state for input fields
   const [inputs, setInputs] = useState({
     uid:"",
     password:"",
@@ -21,6 +24,7 @@ const Register = () => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
   
+  //submit handle function
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

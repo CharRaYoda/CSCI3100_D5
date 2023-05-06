@@ -3,6 +3,7 @@ import { GetEnrollment, GetCgpa, SelectCourse, DropEnrollment, GradeUpload, SetP
 
 const router = express.Router();
 
+// Routes for different functions related to enrollment
 router.get("/:uid", GetEnrollment);
 router.get("/cgpa/:uid", GetCgpa);
 router.post("/SelectCourse", SelectCourse);

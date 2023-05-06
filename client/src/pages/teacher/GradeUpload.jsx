@@ -1,12 +1,14 @@
-import React, { useContext } from 'react';
+//Grade upload page
+
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Search from './image/Search.png'
 import ReturnHome from './image/ReturnHome.png'
 import axios from "axios";
 import { useState } from 'react';
-import { AuthContext } from '../../context/authContext';
 
 const GradeUpload = () => {
+    //grades, user input, server response
     const grades = ["select", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "F"];
     const [uid, setUid] = useState('');
     const [cid, setCid] = useState('');
@@ -14,6 +16,7 @@ const GradeUpload = () => {
     const [response, setResponse] = useState(null);
     const [err, setError] = useState(null);
 
+    //submit handle function
     const handleGradeUpload = async () => {
         try {
           const response = await axios.put("/enrollments/GradeUpload", {uid: uid, cid: cid, grade: grade});

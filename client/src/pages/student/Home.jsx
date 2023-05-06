@@ -1,3 +1,5 @@
+//Student home page
+
 import React from 'react';
 import Profile from './image/Profile.png';
 import CourseBrowsing from './image/CourseBrowsing.png';
@@ -8,12 +10,14 @@ import LogOut from './image/LogOut.png';
 import { useNavigate } from "react-router-dom";
 
 const StudentHome = () => {
+    //images for student functions
     const images = [
         Profile, CourseBrowsing, ChangePassword, CampusMap, BugReport, LogOut
     ];
 
     const navigate = useNavigate();
 
+    //handle function for clicking student functions
     const handleClick = (index) => {
         
         switch (index) {
@@ -38,7 +42,8 @@ const StudentHome = () => {
             navigate("/BugReport");
             break;
           case 5:
-            // navigate to login
+            // navigate to Log in page and clear localStorage
+            localStorage.clear();
             navigate("/login");
             break;
           default:
@@ -51,6 +56,7 @@ const StudentHome = () => {
             <h1>Student Home</h1>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridGap: '20px' }}>
+                    {/* Display admin functions in home page */}
                     {images.map((image, index) => (
                     <img
                         key={index}

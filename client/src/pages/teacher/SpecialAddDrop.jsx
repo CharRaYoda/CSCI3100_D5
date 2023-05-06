@@ -1,3 +1,5 @@
+//Special add/drop page
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Search from './image/Search.png'
@@ -6,6 +8,7 @@ import axios from "axios";
 import { useState } from 'react';
 
 const SpecialAddDrop = () => {
+    //actions, user input, server response
     const actions = ["select", "Add", "Drop"];
     const [uid, setUid] = useState('');
     const [cid, setCid] = useState('');
@@ -13,6 +16,7 @@ const SpecialAddDrop = () => {
     const [response, setResponse] = useState(null);
     const [err, setError] = useState(null);
 
+    //submit handle function
     const handleSubmit = async () => {
         try {
           const response = await axios.post("/enrollments/SpecialAddDrop", {uid: uid, cid: cid, action: action});

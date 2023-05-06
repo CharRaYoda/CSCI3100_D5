@@ -14,6 +14,7 @@ import {
 
 const router = express.Router();
 
+// Routes for different functions related to courses
 router.get("/id/:courseId", getCourseByID);
 router.get("/name/:courseName", getCourseByName);
 router.get("/department/:courseDepartment", getCourseByDepartment);

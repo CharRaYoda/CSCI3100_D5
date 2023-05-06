@@ -1,10 +1,13 @@
+//Login page
+
+//imports
 import React, { useState } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 
 const Login = () => {
+  //states for roles
   const roles = ["select", "student", "teacher", "admin"];
   const [inputs, setInputs] = useState({
     uid:"",
@@ -22,6 +25,7 @@ const Login = () => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
   
+  //submit handle function
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

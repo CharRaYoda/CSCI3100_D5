@@ -1,3 +1,5 @@
+//Course update page
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Add from './image/add.png'
@@ -6,11 +8,13 @@ import axios from "axios";
 import { useState } from 'react';
 
 const CourseUpdate = () => {
+    //user input, server response
     const [cid, setCid] = useState('');
     const [description, setDescription] = useState('');
     const [response, setResponse] = useState(null);
     const [err, setError] = useState(null);
 
+    //submit handle function
     const handleCourseUpdate = async () => {
         try {
           const response = await axios.put("/courses/CourseUpdate", {cid: cid, description: description});

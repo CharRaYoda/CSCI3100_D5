@@ -8,6 +8,7 @@ import {
 
 const router = express.Router()
 
+// Routes for different functions related to users
 router.get('/',getAllUsers);
 router.post("/", getAllUsers);
 router.post("/del", delUser);

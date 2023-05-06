@@ -1,3 +1,5 @@
+//Teacher home page
+
 import React from 'react';
 import BugReport from './image/BugReport.png';
 import CampusMap from './image/CampusMap.png';
@@ -11,6 +13,7 @@ import GradeUpload from './image/GradeUpload.png';
 import { useNavigate } from "react-router-dom";
 
 const TeacherHome = () => {
+    //images for teacher functions
     const images = [
         CourseUpdate, GradeUpload, ChangePassword, SpecialAddDrop, BugReport, ClassroomBooking, CampusMap, CourseTeaching
         , Logout
@@ -46,15 +49,16 @@ const TeacherHome = () => {
             navigate("/teacher/ClassroomBooking");
             break;
           case 6:
-            //navigate to page 7
+            // navigate to page 7
             window.open('https://www.cuhk.edu.hk/chinese/campus/cuhk-campus-map.html', '_blank');
             break;
           case 7:
             navigate("/teacher/CourseTeaching")
             break;
           case 8:
-            // navigate to login page
-             navigate("/login")
+            // navigate to Log in page and clear localStorage
+            localStorage.clear();
+            navigate("/login")
             break;
           default:
             break;
@@ -66,6 +70,7 @@ const TeacherHome = () => {
             <h1>Teacher Homepage</h1>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridGap: '20px' }}>
+                    {/* Display admin functions in home page */}
                     {images.map((image, index) => (
                     <img
                         key={index}

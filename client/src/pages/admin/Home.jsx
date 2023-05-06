@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const AdminHome = () => {
+    // images for admin functions
     const images = [
         EnrollmentSetting, ViewEditUser, ViewEditCourse, ChangePassword, BugReport, LogOut
     ];
@@ -43,7 +44,7 @@ const AdminHome = () => {
                 navigate('/BugReport');
                 break;
             case 5:
-                // Navigate to Log Out page and clear localStorage
+                // Navigate to Log in page and clear localStorage
                 localStorage.clear();
                 navigate('/login');
                 break;
@@ -57,6 +58,7 @@ const AdminHome = () => {
             <h1>Admin Home</h1>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridGap: '20px' }}>
+                    {/* Display admin functions in home page */}
                     {images.map((image, index) => (
                     <img
                         key={index}

@@ -1,3 +1,5 @@
+//Student profile page
+
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import ProfileIcon from './image/Search.png'
@@ -7,6 +9,7 @@ import { useState, useEffect } from 'react';
 import { AuthContext } from '../../context/authContext';
 
 const Profile = () => {
+    //current user info, server response
     const { currentUser } = useContext(AuthContext);
     const [results, setResults] = useState([]);
     const [cgpa, setCgpa] = useState();
@@ -25,7 +28,7 @@ const Profile = () => {
         fetchData();
     },[]);
 
-
+    //drop course handle function
     const handleDrop = async (cid, index) => {
         try {
           setSelectedIndex(index);
@@ -95,10 +98,11 @@ const Profile = () => {
                       <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.current_capacity}/{result.capacity}</td>
                       <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.description}</td>
                       <td style={{textAlign: 'center', verticalAlign: 'middle'}}>{result.grade}</td>
+                      {/* Display drop button if there is no grade */}
                       {!grades.includes(result.grade) && (
                         <td><button onClick={() => handleDrop(result.cid, index)}>Drop</button></td>
                       )}
-                      
+                      {/* Display message when corresponding button is clicked */}
                       {selectedIndex === index && (
                         <>
                           <td>{err && <p className="err">{err}</p>}</td>

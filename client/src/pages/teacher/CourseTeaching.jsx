@@ -1,3 +1,5 @@
+//Course teaching page
+
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import ProfileIcon from './image/Search.png'
@@ -7,6 +9,7 @@ import { useState, useEffect } from 'react';
 import { AuthContext } from '../../context/authContext';
 
 const CourseTeaching = () => {
+    //current user, server response
     const { currentUser } = useContext(AuthContext);
     const [results, setResults] = useState([]);
 

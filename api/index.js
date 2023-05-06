@@ -6,6 +6,7 @@ import enrollmentRoutes from "./routes/enrollments.js"
 
 const app = express()
 
+// Routes for the whole application
 app.use(express.json())
 app.use("/api/auth", authRoutes)
 app.use("/api/users", userRoutes)

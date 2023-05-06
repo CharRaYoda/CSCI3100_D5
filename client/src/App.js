@@ -33,6 +33,8 @@ import AdminDeleteUser from "./pages/admin/DeleteUser";
 import AdminAddUser from "./pages/admin/AddUser";
 
 import "./style.scss"
+
+//Routes for the website
 const router = createBrowserRouter([
   {
     path: "/",

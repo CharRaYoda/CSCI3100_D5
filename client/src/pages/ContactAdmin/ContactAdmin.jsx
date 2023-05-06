@@ -1,13 +1,17 @@
+//Contact admin page
+
 import React from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function ContactAdmin() {
+  //email list
   const emailList = [
     'anthonytam721@cse.cuhk.edu.hk',
     'samhui261@cse.cuhk.edu.hk',
     'vincentchan315@cse.cuhk.edu.hk',
   ];
 
+  //email click handle function
   const handleEmailClick = (email) => {
     window.location.href = `mailto:${email}`;
   };
