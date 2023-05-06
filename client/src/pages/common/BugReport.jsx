@@ -1,3 +1,5 @@
+//Contact admin page
+
 import React, { useContext } from 'react';
 import { Link, useNavigate} from "react-router-dom";
 import { AuthContext } from '../../context/authContext';
@@ -6,10 +8,12 @@ function BugReport({ user }) {
   const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  // developer's email
   const emailList = [
     'DeveloperTeam@cse.cuhk.edu.hk',
   ];
 
+  //email click handle function
   const handleEmailClick = (email) => {
     window.location.href = `mailto:${email}`;
   };

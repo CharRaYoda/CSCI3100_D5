@@ -1,10 +1,14 @@
+// default page
+
 import React from 'react';
 import { Link, useNavigate} from "react-router-dom";
 
 function CourseSelectionSystem() {
+	// redirect to CUHK map
     const handleClick = () => {
         window.open('https://www.cuhk.edu.hk/chinese/campus/cuhk-campus-map.html', '_blank');
     }
+    
   return (
     <div className="course-selection-system-container">
       <h1>Course Selection System</h1>

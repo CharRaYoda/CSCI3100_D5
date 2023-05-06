@@ -1,3 +1,5 @@
+// pop up window
+
 import React from "react";
 import "./Popup.css";
 export const Popup = ({ text, closePopup }) => {

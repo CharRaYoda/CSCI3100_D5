@@ -1,3 +1,5 @@
+//change password page
+
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate} from "react-router-dom";
@@ -15,21 +17,25 @@ function ChangePassword() {
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState(null);
 
+  // change the current password
   const handleCurrentPasswordChange = (event) => {
     setCurrentPassword(event.target.value);
   };
 
+  // set the password for a new account
   const handleNewPasswordChange = (event) => {
     const value = event.target.value;
     setNewPassword(value);
   };
 
+  // check if the re-entered new password matches the new password
   const handleNewPasswordConfirmationChange = (event) => {
     const value = event.target.value;
     setIsNewPasswordConfirmationValid(value === newPassword);
     setNewPasswordConfirmation(value);
   };
 
+  // password change click handle function
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
